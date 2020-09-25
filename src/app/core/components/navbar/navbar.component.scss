@@ -1,14 +1,16 @@
-.nav-toolbar #logo{
-    width: 64px;
-    height: 64px;
-}
-.join-button{
-    background-color: rgb(117, 0, 49);
-}
-.nav-row{
-    width: 100%;
-}
-.nav-items-right{
-    margin-left: auto;
-    align-self: center;
+.nav-toolbar{
+    #logo{
+        width: 64px;
+        height: 64px;
+    }
+    .nav-row{
+        width: 100%;
+        .nav-items-right{
+            margin-left: auto;
+            align-self: center;
+            .join-button{
+                background-color: rgb(117, 0, 49);
+            }
+        }
+    }
 }

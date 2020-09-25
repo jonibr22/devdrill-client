@@ -1,19 +1,23 @@
-.login-action-box .text-note{
-    display: inline-block;
-    font-size: 12px;
-    padding-top: 10px;
-}
-.login-action-box .text-note .a-link{
-    display: inline-block;
-    color: rgb(138, 190, 206);
-}
-.login-form .login-form-field .field-box{
-    width:100%;
-    margin-bottom: 5px;
-}
-.login-action-box button{
-    margin-right: 10px;
+.login-action-box{
+    .text-note{
+        display: inline-block;
+        font-size: 12px;
+        padding-top: 10px;
+        .a-link{
+            display: inline-block;
+            color: rgb(138, 190, 206);
+        }
+    }
+    button{
+        margin-right: 10px;
+    }
 }
 .login-form{
     margin-bottom: 20px;
+    .login-form-field{
+        .field-box{
+            width:100%;
+            margin-bottom: 5px;
+        }
+    }
 }
