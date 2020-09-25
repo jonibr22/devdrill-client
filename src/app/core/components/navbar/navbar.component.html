@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="nav-toolbar">
+    <div fxLayout="row" fxShow="true" fxHide.lt-sm class="nav-row">
+        <div fxLayout="col" class="nav-items-left">
+            <button mat-button routerLink="/">
+                <img src="../../../../assets/logo.png" id="logo">
+            </button>
+            <button mat-button routerLink="#">Tracks</button>
+            <button mat-button routerLink="#">Courses</button>
+            <button mat-button routerLink="#">Forum</button>
+        </div>
+        <div fxLayout="col" class="nav-items-right">
+            <button mat-button routerLink="#" class="join-button">
+                <span>JOIN NOW</span>
+            </button>
+        </div>
+    </div>
+    <button mat-button [mat-menu-trigger-for]="menu" fxShow="true" fxHide.gt-xs>
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/">Home</button>
+    <button mat-menu-item routerLink="#">Tracks</button>
+    <button mat-menu-item routerLink="#">Courses</button>
+    <button mat-menu-item routerLink="#">Forum</button>
+</mat-menu>

@@ -1,0 +1,17 @@
+.signup-form .signup-form-field .field-box{
+    width:100%;
+    margin-bottom: 5px;
+}
+.signup-action-box button{
+    margin-right: 10px;
+}
+.signup-form{
+    margin-bottom: 20px;
+}
+::ng-deep .signup-form-field .field-box .agreement .mat-checkbox-layout{
+    white-space: normal !important;
+}
+.signup-form-field .field-box .a-link{
+    display: inline-block;
+    color: #ffffff;
+}

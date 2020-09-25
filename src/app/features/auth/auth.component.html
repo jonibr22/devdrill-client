@@ -1,0 +1,18 @@
+<div class="auth-container">
+    <mat-card class="auth-card">
+        <mat-card-header class="auth-header">
+            <mat-card-title *ngIf="isLoginTab()">Login</mat-card-title>
+            <mat-card-title *ngIf="isRegisterTab()">Registration</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="auth-content">
+            <app-login *ngIf="isLoginTab()"></app-login>
+            <app-register *ngIf="isRegisterTab()"></app-register>
+        </mat-card-content>
+    </mat-card>
+    <div class="other-options">
+        <button mat-raised-button class="switch-button" *ngIf="isLoginTab()" 
+            (click)="moveToRegisterTab()">CREATE NEW ACCOUNT</button>
+        <button mat-raised-button class="switch-button" *ngIf="isRegisterTab()" 
+            (click)="moveToLoginTab()">I ALREADY HAVE AN ACCOUNT</button>
+    </div>
+</div>
