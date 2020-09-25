@@ -1,31 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-enum TabSection{
-  LoginTab, RegisterTab
-}
+import { AuthTabSection } from '../../core/enums/enum-auth-tabsection';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  private currentTab = TabSection.RegisterTab;
+  private currentTab = AuthTabSection.LoginTab;
 
-  constructor(private routeService : Router){ }
+  constructor(){ }
   ngOnInit(): void { }
 
   moveToLoginTab(){
-    //this.routeService.navigateByUrl('login');
-    this.currentTab = TabSection.LoginTab;
+    this.currentTab = AuthTabSection.LoginTab;
   }
   moveToRegisterTab(){
-    //this.routeService.navigateByUrl('register');
-    this.currentTab = TabSection.RegisterTab;
+    this.currentTab = AuthTabSection.RegisterTab;
   }
   isLoginTab(){
-    return this.currentTab == TabSection.LoginTab ? true : false;
+    return this.currentTab == AuthTabSection.LoginTab ? true : false;
   }
   isRegisterTab(){
-    return this.currentTab == TabSection.RegisterTab ? true : false;
+    return this.currentTab == AuthTabSection.RegisterTab ? true : false;
   }
 }
