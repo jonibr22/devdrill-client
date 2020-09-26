@@ -8,19 +8,51 @@
             <button mat-button routerLink="#">Courses</button>
             <button mat-button routerLink="#">Forum</button>
         </div>
-        <div fxLayout="col" class="nav-items-right">
-            <button mat-button routerLink="#" class="join-button">
-                <span>JOIN NOW</span>
+        <!-- conditional view of 'join now / account button' on wide menu -->
+        <div fxLayout="col" class="nav-items-right" *ngIf="currentUser; else joinButton">
+            <button mat-button routerLink="#" class="account-button" [mat-menu-trigger-for]="account">
+                <mat-icon>person</mat-icon>
+                <span>{{currentUser.name}}</span>
             </button>
         </div>
+        <!-- ---- -->
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxShow="true" fxHide.gt-xs>
         <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
+<mat-menu xPosition="after" #menu="matMenu">
     <button mat-menu-item routerLink="/">Home</button>
     <button mat-menu-item routerLink="#">Tracks</button>
     <button mat-menu-item routerLink="#">Courses</button>
     <button mat-menu-item routerLink="#">Forum</button>
+    <!-- conditional view of 'join now / account button' on thin menu -->
+    <button mat-menu-item 
+        *ngIf="currentUser; else inmenuJoinButton"
+        [mat-menu-trigger-for]="inmenuAccount">
+        Account
+    </button>
+    <!-- ---- -->
 </mat-menu>
+<!-- submenu of account on wide menu -->
+<mat-menu xPosition="before" #account="matMenu">
+    <button mat-menu-item routerLink="#">Profile</button>
+    <button mat-menu-item routerLink="#">Logout</button>
+</mat-menu>
+<!-- submenu of account on thin menu -->
+<mat-menu xPosition="after" #inmenuAccount="matMenu">
+    <button mat-menu-item routerLink="#">Profile</button>
+    <button mat-menu-item routerLink="#">Logout</button>
+</mat-menu>
+<!-- 'join now' button on thin menu -->
+<ng-template #inmenuJoinButton>
+    <button mat-menu-item routerLink="#">Join Now</button>
+</ng-template>
+<!-- 'join now' button on wide menu -->
+<ng-template #joinButton>
+    <div fxLayout="col" class="nav-items-right" #joinButton>
+        <button mat-button routerLink="#" class="join-button">
+            <span>JOIN NOW</span>
+        </button>
+    </div>
+</ng-template>
