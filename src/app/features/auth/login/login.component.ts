@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@app/core/services/authentication.service';
+import { NotificationService } from '@app/services/notification.service';
+import { NotificationEnum } from '@app/core/enums/notification.enum';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +23,8 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private notification: NotificationService
   ) { 
       // redirect to home if already logged in
       if (this.authenticationService.userValue) { 
@@ -42,7 +46,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-
       // stop here if form is invalid
       if (this.loginForm.invalid) {
           return;
@@ -57,6 +60,7 @@ export class LoginComponent implements OnInit {
               error => {
                   this.error = error;
                   this.loading = false;
+                  this.notification.notify(error,NotificationEnum.Error);
               });
   }
   switchToRegister(){

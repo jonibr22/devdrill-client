@@ -2,3 +2,33 @@
 
 html, body { height: 100%; min-width: 327px;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Notification style */
+.notify-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.notify-info .mat-simple-snackbar-action {
+    color: #00529B;
+}
+.notify-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.notify-info .mat-simple-snackbar-action {
+    color: #4F8A10;
+}
+.notify-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.notify-info .mat-simple-snackbar-action {
+    color: #9F6000;
+}
+.notify-error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.notify-info .mat-simple-snackbar-action {
+    color: #D8000C;
+}

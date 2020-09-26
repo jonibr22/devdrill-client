@@ -18,8 +18,7 @@ export class ErrorInterceptor extends RootInjectorGuard implements HttpIntercept
                 // auto logout if 401 response returned from api
                 this.authenticationService.logout();
             }
-
-            const error = err.error.message || err.statusText;
+            const error = err.error || err.statusText;
             return throwError(error);
         }))
     }
