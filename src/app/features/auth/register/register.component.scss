@@ -1,19 +1,38 @@
-.signup-action-box button{
-    margin-right: 10px;
+.signup-card{
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
 }
-.signup-form{
-    margin-bottom: 20px;
-    .signup-form-field{
-        .field-box{
-            width:100%;
-            margin-bottom: 5px;
-            .a-link{
-                display: inline-block;
-                color: #ffffff;
+.signup-content{
+    margin: 0 16px;
+    .signup-form{
+        .signup-form-field{
+            .field-box{
+                width:100%;
+                margin-bottom: 5px;
+                .a-link{
+                    display: inline-block;
+                    color: #ffffff;
+                }
             }
+        }
+        .signup-action-box button{
+            margin-top: 20px;
+            margin-right: 10px;
         }
     }
 }
-::ng-deep .signup-form .signup-form-field .field-box .agreement .mat-checkbox-layout{
+.other-options{
+    margin: auto;
+    max-width: 560px;
+    text-align: center;
+    padding: 20px 0;
+    .switch-button{
+        width: 100%;
+        background-color: #0172cf;
+    }
+}
+
+::ng-deep .signup-content .signup-form .signup-form-field .field-box .agreement .mat-checkbox-layout{
     white-space: normal !important;
 }

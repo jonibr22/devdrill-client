@@ -1,23 +1,41 @@
-.login-action-box{
-    .text-note{
-        display: inline-block;
-        font-size: 12px;
-        padding-top: 10px;
-        .a-link{
-            display: inline-block;
-            color: rgb(138, 190, 206);
+.login-card{
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+}
+.login-content{
+    margin: 0 16px;
+    .login-form{
+        .login-form-field{
+            .field-box{
+                width:100%;
+                margin-bottom: 5px;
+            }
         }
     }
-    button{
-        margin-right: 10px;
+    .login-action-box{
+        margin-top: 20px;
+        .text-note{
+            display: inline-block;
+            font-size: 12px;
+            padding-top: 10px;
+            .a-link{
+                display: inline-block;
+                color: rgb(138, 190, 206);
+            }
+        }
+        button{
+            margin-right: 10px;
+        }
     }
 }
-.login-form{
-    margin-bottom: 20px;
-    .login-form-field{
-        .field-box{
-            width:100%;
-            margin-bottom: 5px;
-        }
+.other-options{
+    margin: auto;
+    max-width: 560px;
+    text-align: center;
+    padding: 20px 0;
+    .switch-button{
+        width: 100%;
+        background-color: #0172cf;
     }
 }

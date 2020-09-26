@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from './core/services/authentication.service';
+import { User } from './models/user.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,9 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Devdrill';
-  links = [
-    { path: '/home', icon: 'home', title: 'Home' },
-    { path: '/courses', icon: 'view_list', title: 'Courses' },
-    { path: '/users', icon: 'person', title: 'User'}
-  ];
+  user: User;
+
+  constructor(
+      private authenticationService: AuthenticationService
+  ) {
+      this.authenticationService.user.subscribe(x => this.user = x);
+  }
+
+  logout() {
+      this.authenticationService.logout();
+  }
 }
