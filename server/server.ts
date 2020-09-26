@@ -8,42 +8,42 @@ const fs = require('fs');
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
+//LOGIN USER API
 server.post('/login', (req, res, next) => { 
-  const users = readUsers();
-
+  const users = readUsers(); //get all users
   const user = users.filter(
-    u => u.username === req.body.username && u.password === req.body.password
-  )[0];
+    u => u.email === req.body.email && u.password === req.body.password
+  )[0]; //filter users by email & password
 
-  if (user) {
-    res.send({ ...formatUser(user), token: checkIfAdmin(user) });
-  } else {
-    res.status(401).send('Incorrect username or password');
+  if (user) { //check if user exists
+    res.send({ ...formatUser(user), token: generateToken(user) });
+  } 
+  else {
+    res.status(401).send('Incorrect email or password');
   }
 });
-
+//REGISTER USER API
 server.post('/register', (req, res) => {
-  const users = readUsers();
-  const user = users.filter(u => u.username === req.body.username)[0];
-
+  const users = readUsers(); //get all users
+  const user = users.filter(u => u.email === req.body.email)[0]; //filter users by email 
+  //check if email does not exists
   if (user === undefined || user === null) {
-    res.send({
-      ...formatUser(req.body),
-      token: checkIfAdmin(req.body)
+    res.send({...formatUser(req.body),token: generateToken(req.body)
     });
-    db.users.push(req.body);
-  } else {
+    db.users.push(req.body); //add to db.json
+  } 
+  else {
     res.status(500).send('User already exists');
   }
 });
-
-server.use('/users', (req, res, next) => {
-  if (isAuthorized(req) || req.query.bypassAuth === 'true') {
-    next();
-  } else {
-    res.sendStatus(401);
-  }
-});
+// // 
+// server.use('/users', (req, res, next) => {
+//   if (isAuthorized(req) || req.query.bypassAuth === 'true') {
+//     next();
+//   } else {
+//     res.sendStatus(401);
+//   }
+// });
 
 server.use(router);
 server.listen(3000, () => {
@@ -52,21 +52,17 @@ server.listen(3000, () => {
 
 function formatUser(user) {
   delete user.password;
-  user.role = user.username === 'admin'
-    ? 'admin'
-    : 'user';
+  user.signin = new Date();
   return user;
 }
 
-function checkIfAdmin(user, bypassToken = false) {
-  return user.username === 'admin' || bypassToken === true
-    ? 'admin-token'
-    : 'user-token';
+function generateToken(user) {
+  return "user-token"
 }
 
-function isAuthorized(req) {
-  return req.headers.authorization === 'admin-token' ? true : false;
-}
+// function isAuthorized(req) {
+//   return req.headers.authorization === 'admin-token' ? true : false;
+// }
 
 function readUsers() {
   const dbRaw = fs.readFileSync('./server/db.json');  
