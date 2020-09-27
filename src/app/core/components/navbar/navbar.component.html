@@ -8,8 +8,8 @@
             <button mat-button routerLink="#">Courses</button>
             <button mat-button routerLink="#">Forum</button>
         </div>
-        <!-- conditional view of 'join now / account button' on wide menu -->
-        <div fxLayout="col" class="nav-items-right" *ngIf="currentUser; else joinButton">
+        <!-- conditional view of 'sign in / account button' on wide menu -->
+        <div fxLayout="col" class="nav-items-right" *ngIf="currentUser; else signInButton">
             <button mat-button routerLink="#" class="account-button" [mat-menu-trigger-for]="account">
                 <mat-icon>person</mat-icon>
                 <span>{{currentUser.name}}</span>
@@ -26,9 +26,9 @@
     <button mat-menu-item routerLink="#">Tracks</button>
     <button mat-menu-item routerLink="#">Courses</button>
     <button mat-menu-item routerLink="#">Forum</button>
-    <!-- conditional view of 'join now / account button' on thin menu -->
+    <!-- conditional view of 'sign in / account button' on thin menu -->
     <button mat-menu-item 
-        *ngIf="currentUser; else inmenuJoinButton"
+        *ngIf="currentUser; else inmenuSignInButton"
         [mat-menu-trigger-for]="inmenuAccount">
         Account
     </button>
@@ -37,22 +37,22 @@
 <!-- submenu of account on wide menu -->
 <mat-menu xPosition="before" #account="matMenu">
     <button mat-menu-item routerLink="#">Profile</button>
-    <button mat-menu-item routerLink="#">Logout</button>
+    <button mat-menu-item routerLink="#" (click)="signout.emit()">Logout</button>
 </mat-menu>
 <!-- submenu of account on thin menu -->
 <mat-menu xPosition="after" #inmenuAccount="matMenu">
     <button mat-menu-item routerLink="#">Profile</button>
-    <button mat-menu-item routerLink="#">Logout</button>
+    <button mat-menu-item routerLink="#" (click)="signout.emit()">Logout</button>
 </mat-menu>
-<!-- 'join now' button on thin menu -->
-<ng-template #inmenuJoinButton>
-    <button mat-menu-item routerLink="#">Join Now</button>
+<!-- 'Sign In' button on thin menu -->
+<ng-template #inmenuSignInButton>
+    <button mat-menu-item routerLink="#" (click)="signin.emit()">Sign In</button>
 </ng-template>
-<!-- 'join now' button on wide menu -->
-<ng-template #joinButton>
-    <div fxLayout="col" class="nav-items-right" #joinButton>
-        <button mat-button routerLink="#" class="join-button">
-            <span>JOIN NOW</span>
+<!-- 'Sign In' button on wide menu -->
+<ng-template #signInButton>
+    <div fxLayout="col" class="nav-items-right" #signInButton>
+        <button mat-button routerLink="#" class="signIn-button" (click)="signin.emit()">
+            <span>Sign In</span>
         </button>
     </div>
 </ng-template>

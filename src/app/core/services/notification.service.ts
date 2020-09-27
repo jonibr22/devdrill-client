@@ -7,17 +7,20 @@ import {
   MatSnackBarRef
 } from '@angular/material/snack-bar';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
+import { RootInjectorGuard } from '../guards/root-injector.guard';
 
 @Injectable({providedIn: 'root'})
-export class NotificationService {
+export class NotificationService extends RootInjectorGuard{
 
     private snackBarConfig: MatSnackBarConfig;
     private snackBarRef: MatSnackBarRef<any>;
     private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     private verticalPosition: MatSnackBarVerticalPosition = 'top';
-    private snackBarAutoHide = '1500';
+    private snackBarAutoHide = '3000';
 
-    constructor(private snackBar: MatSnackBar) { }
+    constructor(private snackBar: MatSnackBar) { 
+        super(NotificationService)
+    }
     
     notify(message:string, type:NotificationEnum) : MatSnackBarRef<any>{
         let panelClass = '';

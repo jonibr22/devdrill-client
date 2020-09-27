@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@app/core/services/authentication.service';
-import { NotificationService } from '@app/services/notification.service';
+import { NotificationService } from '@app/core/services/notification.service';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
 
 @Component({

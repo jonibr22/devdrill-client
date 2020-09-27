@@ -12,12 +12,15 @@ export class AppComponent {
   user: User;
 
   constructor(
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private router: Router
   ) {
-      this.authenticationService.user.subscribe(x => this.user = x);
+    this.authenticationService.user.subscribe(x => this.user = x);
   }
-
+  login(){
+    this.router.navigate(['auth/login']);
+  }
   logout() {
-      this.authenticationService.logout();
+    this.authenticationService.logout();
   }
 }

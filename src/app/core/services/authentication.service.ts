@@ -25,6 +25,9 @@ export class AuthenticationService extends RootInjectorGuard{
     public get userValue(): User {
         return this.userSubject.value;
     }
+    register(data: User){
+        return this.http.post<any>(`${environment.apiUrl}/register`, data);
+    }
 
     login(email: string, password: string) {
         return this.http.post<any>(`${environment.apiUrl}/login`, { email, password })

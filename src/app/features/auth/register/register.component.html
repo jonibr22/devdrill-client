@@ -3,39 +3,47 @@
       <mat-card-title>Registration</mat-card-title>
   </mat-card-header>
   <mat-card-content class="signup-content">
-    <form class="signup-form">
+    <form class="signup-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="signup-form-field">
-          <mat-form-field class="field-box">
-            <input matInput placeholder="Name" name="name" required>
-          </mat-form-field>
+        <mat-form-field class="field-box">
+          <input matInput placeholder="Name" formControlName="name" type="text"
+            [ngClass]="{'is-invalid': submitted && f.name.errors }">
+        </mat-form-field>
       </div>
       <div class="signup-form-field">
         <mat-form-field class="field-box">
-          <input matInput placeholder="Email" name="email" required>
+          <input matInput placeholder="Email" formControlName="email" type="text"
+            [ngClass]="{'is-invalid': submitted && f.email.errors }">
         </mat-form-field>
       </div>
       <div class="signup-form-field">
           <mat-form-field class="field-box">
-            <input matInput placeholder="Phone Number" name="phoneNumber" required>
+            <input matInput placeholder="Phone Number" formControlName="phone" type="text"
+              [ngClass]="{'is-invalid': submitted && f.phone.errors }">
           </mat-form-field>
       </div>
       <div class="signup-form-field">
         <mat-form-field class="field-box">
-          <input matInput placeholder="Password" type="password" name="password" required>
+          <input matInput placeholder="Password" type="password" formControlName="password"
+            [ngClass]="{'is-invalid': submitted && f.password.errors }">
         </mat-form-field>
       </div>
       <div class="signup-form-field">
           <mat-form-field class="field-box">
-            <input matInput placeholder="Confirm Password" type="password" name="confirmPassword" required>
+            <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword"
+              [ngClass]="{'is-invalid': submitted && f.confirmPassword.errors }">
           </mat-form-field>
       </div>
       <div class="signup-form-field">
         <section class="field-box">
-          <mat-checkbox class="agreement"> I agree to the <a class="a-link" href="#">Terms of Service and Privacy Policy</a></mat-checkbox>
+          <mat-checkbox class="agreement" formControlName="agreement"
+            [ngClass]="{'is-invalid': submitted && f.agreement.errors}"> 
+            I agree to the <a class="a-link" href="#">Terms of Service and Privacy Policy</a>
+          </mat-checkbox>
         </section>
       </div>
       <div class="signup-action-box">
-        <button mat-raised-button color="primary">Sign Up</button>
+        <button mat-raised-button color="primary" [disabled]="loading" type="submit">Sign Up</button>
       </div>
     </form>
   </mat-card-content>

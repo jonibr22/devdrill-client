@@ -1,6 +1,10 @@
 <div class="mat-app-background">
   <header>
-    <app-navbar [currentUser]="user"></app-navbar>
+    <app-navbar 
+      [currentUser]="user"
+      (signin)="login()"
+      (signout)="logout()">
+    </app-navbar>
   </header>
   <main>
     <app-content-wrapper>
