@@ -1,18 +1,32 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "superadmin",
+      "email": "dsadsa",
       "password": "12345",
-      "name": "God of Devdrill",
-      "phone": "0814829329"
+      "phone": "1231321",
+      "name": "dsada",
+      "id": 1
     },
     {
-      "id": 2,
-      "email": "testuser",
+      "email": "ddassa",
+      "password": "1234",
+      "phone": "43432",
+      "name": "4343",
+      "id": 2
+    },
+    {
+      "email": "priusascilus@mail.com",
       "password": "12345",
-      "name": "Mikael Leviathan",
-      "phone": "0814829329"
+      "phone": "08748328823",
+      "name": "Prius Ascilus",
+      "id": 3
+    },
+    {
+      "email": "kremlin1@mail.com",
+      "password": "12345",
+      "phone": "14243232",
+      "name": "Kremlin Laknat",
+      "id": 4
     }
   ]
 }
