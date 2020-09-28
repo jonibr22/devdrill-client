@@ -71,7 +71,6 @@ export class RegisterComponent implements OnInit {
     user.phone = this.f.phone.value;
 
     this.authenticationService.register(user)
-      .pipe(first())
       .subscribe(
           data => {
               this.openSuccessDialog();

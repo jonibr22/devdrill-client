@@ -14,11 +14,11 @@ server.use(jsonServer.bodyParser);
 server.post('/login', (req, res) => { 
   const db = router.db;
   const users = all(db,'users'); //get all users
-  const user = users.filter(
+  const user = users.find(
     u => u.email === req.body.email && u.password === req.body.password
   ); //filter users by email & password
-  if (any(user)) { //check if user exists
-    res.send({ ...formatUser(user), token: generateToken(user) });
+  if (user.value()) { //check if user exists
+    res.send(user);
   }
   else {
     res.status(401).send('Incorrect email or password');
@@ -28,16 +28,16 @@ server.post('/login', (req, res) => {
 server.post('/register', (req, res) => {
   const db = router.db;
   const users = all(db,'users'); //get all users
-  const user = users.filter(u => u.email === req.body.email); //filter users by email 
+  const user = users.find(u => u.email === req.body.email); //filter users by email 
   //check if email does not exists
-  if (!any(user)) {
+  if (!user.value()) {
     insert(db,'users',{
       email: req.body.email,
       password: req.body.password,
       phone: req.body.phone,
       name: req.body.name
     }); //add to db.json
-    res.send({...formatUser(req.body),token: generateToken(req.body)});
+    res.send(user);
   } 
   else {
     res.status(500).send('User already exists');
@@ -55,7 +55,7 @@ server.post('/register', (req, res) => {
 
 
 function formatUser(user) {
-  delete user.password;
+  user.password = '';
   user.signin = new Date();
   return user;
 }
