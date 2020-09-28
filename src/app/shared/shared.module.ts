@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {
   faBars,
+  faBiking
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -13,6 +16,7 @@ import {
   faInstagram,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -26,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   exports: [
     MaterialModule,
     FontAwesomeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgbModule
   ]
 })
 export class SharedModule { 
@@ -37,7 +42,8 @@ export class SharedModule {
       faMediumM,
       faTwitter,
       faInstagram,
-      faYoutube
+      faYoutube,
+      faBiking
     );
   }
 }

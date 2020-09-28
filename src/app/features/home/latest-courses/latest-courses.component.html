@@ -1,0 +1,22 @@
+<section class='content'>
+    <mat-card class='content-card'>
+        <div class='card-header'>
+            <span class='card-header-text'>Latest Courses</span>
+        </div>
+        <mat-card-content>
+            <div class="content-context">
+                <div class="course-item" *ngFor="let course of courses">
+                    <div class='course-preview'>
+                        <img [src]="course.imgUrl">
+                    </div>
+                    <div class='course-detail'>
+                        <span class='course-title'>{{course.title}}</span>
+                        <span class='course-cluster'>{{course.cluster}}</span>
+                        <span class='course-author'>{{course.author}}</span>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+</section>

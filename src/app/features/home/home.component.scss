@@ -1,0 +1,43 @@
+.row,.latest-courses,.news-and-progress-view,.news,.progress-view{
+    //border: 1px solid white;
+}
+.home-container{
+    max-width: 2500px;
+    margin: auto;
+}
+
+@media (max-width: 900px){
+    .first-row{
+        flex-direction: column-reverse;
+    }
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    .latest-courses{
+        flex: 1 0 0;
+    }
+    .news-and-progress-view{
+        flex: 4 0 0;
+        display: flex;
+        flex-direction: column;
+        .news{
+            flex-grow: 1;
+            section{
+                height: 300px;
+            }
+        }
+        .progress-view{
+            flex-grow: 1;
+            section{
+                height: 300px;
+            }
+        }
+    }
+}
+.row .track-navigator{
+    width: 100%;
+}
+.row .forum-navigator{
+    width: 100%;
+}

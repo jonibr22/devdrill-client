@@ -1,0 +1,39 @@
+.content{
+    margin: 10px;
+}
+.content-card{
+    padding: 0;
+    border-radius: 25px;
+    width: 100%;
+}
+.card-header{
+    border-radius: 25px 25px 0 0;
+    background-color: #c2185b;
+    margin: 0;
+    .card-header-text {
+        font-size: 18px;
+        padding: 10px 0;
+        font-weight: bold;
+    }
+}
+.mat-card-content{
+    height: 300px;
+    background-size: 100% 500px;
+    display: flex;
+    justify-content: center;
+    .content-context{
+        align-self: center;
+        text-align: center;
+        .content-motivation{
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    }
+}
+
+.mat-card-content::-webkit-scrollbar {
+    display: none;
+}
+.content-context{
+    padding: 20px;
+}
