@@ -10,6 +10,7 @@ import { ProgressViewComponent } from './progress-view/progress-view.component';
 import { TrackNavigatorComponent } from './track-navigator/track-navigator.component';
 import { ForumNavigatorComponent } from './forum-navigator/forum-navigator.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { MaterialModule } from '@app/shared/material.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from '@app/shared/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }

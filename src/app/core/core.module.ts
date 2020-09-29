@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RootInjectorGuard } from './guards/root-injector.guard';
+import { RouterModule } from '@angular/router'
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RootInjectorGuard } from './guards/root-injector.guard';
     CommonModule,
     MaterialModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,
