@@ -36,21 +36,40 @@
 }
 
 .content-context{
-    padding: 20px;
+    padding: 10px;
 }
 .course-item{
     margin-bottom: 10px;
     display: inline-block;
+    background-color: #303030;
+    width: 100%;
+    padding:10px;
+    border-radius:10px;
+    position: relative;
     .course-preview{
-        display: inline-block;
+        display: flex;
+        box-shadow:
+            0 1.4px 11.6px -25px rgba(0, 0, 0, 0.248),
+            0 3.3px 26.9px -25px rgba(0, 0, 0, 0.358),
+            0 6px 48.4px -25px rgba(0, 0, 0, 0.442),
+            0 10px 80.3px -25px rgba(0, 0, 0, 0.518),
+            0 16.4px 132.3px -25px rgba(0, 0, 0, 0.602),
+            0 28.7px 231.2px -25px rgba(0, 0, 0, 0.712),
+            0 62px 500px -25px rgba(0, 0, 0, 0.96)
+        ;      
         img{
-            max-width: 300px;
-            max-height: 100px;
+            flex-grow: 1;
+            width: 300px;
+            height: 100px;
+            border-radius: 6px;
+            
         }
-        padding-right: 10px;
     }
     .course-detail{
+        position: absolute; top: 10px;left: 10px;padding:10px;
+        width: 300px;height: 100px;
         display: inline-block;
+        background: linear-gradient(to left, rgba(255,0,0,0), rgba(0,0,0,1));
         .course-title{
             display: block;
             font-weight: bold;
