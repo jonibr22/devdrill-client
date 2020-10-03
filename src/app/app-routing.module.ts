@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)},
   {path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard]},
   {path: 'track', loadChildren: () => import('./features/track/track.module').then(m => m.TrackModule), canActivate: [AuthGuard]},
+  {path: 'course', loadChildren: () => import('./features/course/course.module').then(m => m.CourseModule), canActivate: [AuthGuard]},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

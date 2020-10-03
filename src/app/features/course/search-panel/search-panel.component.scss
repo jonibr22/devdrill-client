@@ -1,0 +1,26 @@
+
+.search-panel-content{
+    .text-search-container{
+        margin-bottom: 10px;
+        .text-search-func{
+            display: flex;
+            flex-direction: row;
+            fa-icon{
+                color: black;
+            }           
+        }
+    }
+    .sort-container{
+        .sort-container-func{
+            display: flex;
+            flex-direction: row;
+            .sort-field{
+                display: inline;
+                margin-right: 5px;
+            }
+            .sort-order{
+                display: inline;
+            }
+        }
+    }
+}

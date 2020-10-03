@@ -1,0 +1,42 @@
+<mat-card class="search-panel-card">
+    <mat-card-header>
+        <mat-card-title>
+            Search Panel
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="search-panel-content">
+        <div class="text-search-container">
+            <mat-label>Search Course</mat-label>
+            <div class="text-search-func">
+                <input class="search-input" type="text" matInput #courseSearchText>
+                <button (click)="searchCourse.emit(courseSearchText.value)"><fa-icon [icon]="['fas','search']"></fa-icon></button>
+            </div>
+        </div>
+        <div class="text-search-container">
+            <mat-label>Search Instructor</mat-label>
+            <div class="text-search-func">
+                <input class="search-input" type="text" matInput #instructorSearchText>
+                <button (click)="searchInstructor.emit(instructorSearchText.value)"><fa-icon [icon]="['fas','search']"></fa-icon></button>
+            </div>
+        </div>
+        <div class="sort-container">
+            <mat-label>Sort by</mat-label>
+            <div class="sort-container-func">
+                <div class="sort-field">
+                    <select matNativeControl #sortField (change)="setSortField(sortField.value)">
+                        <option *ngFor="let field of sortFieldList" [value]="field.value">
+                            {{field.text}}
+                        </option>
+                    </select>               
+                </div>
+                <div class="sort-order">
+                    <select matNativeContro #sortOrder (change)="setSortOrder(sortOrder.value)">
+                        <option *ngFor="let order of sortOrderList" [value]="order.value">
+                            {{order.text}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

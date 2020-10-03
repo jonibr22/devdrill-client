@@ -1,0 +1,26 @@
+<mat-card class="course-container">
+    <mat-card-header>
+        <mat-card-title>
+            Course List
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="course-list">
+        <mat-card class="course-card" *ngFor="let course of courses">
+            <mat-card-content class="course-card-content">
+                <div class="course-image">
+                    <img [src]="course.imgUrl">
+                </div>
+                <div class="course-detail">
+                    <div class="course-title">{{course.title}}</div>
+                    <div class="course-subtitle">{{course.mentor}}</div>
+                    <div class="course-desc">
+                        <p>{{course.desc}}</p>
+                        <div class="course-audit">
+                            {{course.date.toDateString()}}
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

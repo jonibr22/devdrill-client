@@ -7,7 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {
   faBars,
-  faBiking
+  faBiking,
+  faSearch
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -43,7 +44,8 @@ export class SharedModule {
       faTwitter,
       faInstagram,
       faYoutube,
-      faBiking
+      faBiking,
+      faSearch
     );
   }
 }

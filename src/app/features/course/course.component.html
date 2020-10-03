@@ -1,0 +1,16 @@
+<h1>Courses</h1>
+<div class="course-container">
+    <app-search-panel class="search-panel"
+        (searchCourse)="filterCourse($event)"
+        (searchInstructor)="filterInstructor($event)"
+        (sortState)="setOrderState($event)"
+    >
+    
+    </app-search-panel>
+    
+    <app-course-list class="course-list-panel"
+        [courses] = "filteredCourses"
+    >
+        
+    </app-course-list>
+</div>

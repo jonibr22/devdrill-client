@@ -1,0 +1,20 @@
+@media screen and (max-width: 800px){
+    .course-container{
+        flex-direction: column !important;
+        .search-panel{
+            width: 100% !important;
+        }
+    }
+}
+.course-container{
+    display: flex;
+    flex-direction: row;
+    .search-panel{
+        width: 300px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    .course-list-panel{
+        width: 100%;
+    }
+}
