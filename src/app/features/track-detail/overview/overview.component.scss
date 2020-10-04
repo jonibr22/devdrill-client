@@ -1,0 +1,29 @@
+.overview-container{
+    margin-bottom: 30px;
+    .overview-card{
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),linear-gradient(to top,#ff0000,#ffffff) ;
+    }
+    .overview-card mat-card-content{
+        .track-image{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            img{
+                width: 100%;
+                height: 100%
+            }
+        }
+        .track-desc{
+            .track-title{
+                text-align: center;
+                margin: 20px 0;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .track-about{
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+    }
+}

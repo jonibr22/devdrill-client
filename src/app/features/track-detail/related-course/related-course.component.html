@@ -1,11 +1,8 @@
-<mat-card class="course-container">
-    <mat-card-header>
-        <mat-card-title>
-            Course List
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="course-list">
-        <mat-card class="course-card" *ngFor="let course of courses" [routerLink]="['..','coursedetail',course.id]">
+<div class="related-course-container">
+    <h1>Coursework</h1>
+    <hr style="background-color: white;">
+    <div class="related-course-list">
+        <mat-card class="course-card" *ngFor="let course of courses" [routerLink]="['../..','coursedetail',course.id]">
             <mat-card-content class="course-card-content">
                 <div class="course-image">
                     <img [src]="course.imgUrl">
@@ -24,5 +21,5 @@
                 </div>
             </mat-card-content>
         </mat-card>
-    </mat-card-content>
-</mat-card>
+    </div>
+</div>
