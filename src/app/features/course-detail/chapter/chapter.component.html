@@ -1,0 +1,24 @@
+<div class="chapters-container">
+    <div class="chapter" *ngFor="let chapter of chapters">
+        <div class="chapter-title">
+            <h1>{{chapter.title}}</h1>
+        </div>
+        <hr style="background-color: white;">
+        <div class="chapter-detail">
+            <div class="chapter-video">
+                <mat-card class="video-card" *ngFor="let video of chapter.videos">
+                    <mat-card-content>
+                        <div class="video-preview">
+                            <img [src]="video.imgUrl">
+                        </div>
+                        <div class="video-desc">
+                            <div class="video-title">{{video.title}}</div>
+                            <div class="video-duration">{{video.duration}}</div>
+                            <div class="video-about">{{video.desc}}</div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

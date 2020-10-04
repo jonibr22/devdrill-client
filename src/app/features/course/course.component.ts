@@ -9,6 +9,7 @@ import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/st
 export class CourseComponent implements OnInit {
   courses = [
     {
+      'id': 1,
       'imgUrl': '../../../../assets/typescript.png',
       'title': 'Introduction to Typescript', 
       'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -18,6 +19,7 @@ export class CourseComponent implements OnInit {
       'date': new Date(2012,9,12)
     },
     {
+      'id': 2,
       'imgUrl': '../../../../assets/csharp.png',
       'title': 'Asynchronus Programming in C#', 
       'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -27,6 +29,7 @@ export class CourseComponent implements OnInit {
       'date': new Date(2014,12,2)
     },
     {
+      'id': 3,
       'imgUrl': '../../../../assets/php.png',
       'title': 'Object-Oriented Programming with PHP', 
       'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -36,6 +39,7 @@ export class CourseComponent implements OnInit {
       'date': new Date(2014,9,2)
     },
     {
+      'id': 4,
       'imgUrl': '../../../../assets/python.png',
       'title': 'Python Programming Language', 
       'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 

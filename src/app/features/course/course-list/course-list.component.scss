@@ -21,7 +21,6 @@
         border-radius: 10px;
         margin: 20px;
         justify-content: space-between;
-        box-shadow: 10px 10px 49px 13px rgba(0,0,0,0.50);
         .course-card-content{
             display: flex;
             flex-direction: row;
@@ -66,6 +65,14 @@
             .course-detail::-webkit-scrollbar-thumb:hover {
                 background: #555; 
             }
+        }
+        cursor: pointer;
+    }
+    .course-card:hover{
+        background: linear-gradient(to right,#101010,#333232) ;
+        .course-image{
+            opacity: 1 !important;
+            transition: 2s;
         }
     }
 }
