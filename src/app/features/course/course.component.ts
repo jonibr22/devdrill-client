@@ -12,9 +12,9 @@ export class CourseComponent implements OnInit {
       'id': 1,
       'imgUrl': '../../../../assets/typescript.png',
       'title': 'Introduction to Typescript', 
-      'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-               Obcaecati vero cupiditate commodi fugiat ullam consequatur possimus eligendi fuga. 
-               Amet itaque cum veritatis voluptas illum sint velit, earum ex optio quam.`,
+      'desc': `Dalam kursus ini, kalian akan diajarkan Typescript dari dasar hingga fitur-fitur 
+               penting dari Typescript sampai di titik kalian dapat mengimplementasikan Typescript ke 
+               dalam proyek apapun yang kalian kerjakan.`,
       'mentor': 'Mike Wallowski',
       'date': new Date(2012,9,12)
     },
@@ -22,30 +22,28 @@ export class CourseComponent implements OnInit {
       'id': 2,
       'imgUrl': '../../../../assets/csharp.png',
       'title': 'Asynchronus Programming in C#', 
-      'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-               Obcaecati vero cupiditate commodi fugiat ullam consequatur possimus eligendi fuga. 
-               Amet itaque cum veritatis voluptas illum sint velit, earum ex optio quam.`,
-      'mentor': 'Reinard Vallorant',
-      'date': new Date(2014,12,2)
+      'desc': `Dalam kursus ini, kalian akan diajarkan bahasa pemrograman C# dari dasar hingga fitur-fitur penting dari C# sampai di titik kalian dapat mengimplementasikan C# ke dalam proyek apapun yang kalian kerjakan. 
+               Kursus ini juga menjadi dasar bagi kalian yang ingin belajar tentang framework ASP .NET`,
+      'mentor': 'Levi Nathanael',
+      'date': new Date(2014,9,2)
     },
     {
       'id': 3,
       'imgUrl': '../../../../assets/php.png',
       'title': 'Object-Oriented Programming with PHP', 
-      'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-               Obcaecati vero cupiditate commodi fugiat ullam consequatur possimus eligendi fuga. 
-               Amet itaque cum veritatis voluptas illum sint velit, earum ex optio quam.`,
-      'mentor': 'Christopher Tungsten',
-      'date': new Date(2014,9,2)
+      'desc': `Dalam kursus ini, kalian akan diajarkan bahasa pemrograman PHP  dari dasar hingga fitur-fitur penting dari PHP sampai di titik kalian dapat mengimplementasikan PHP ke dalam proyek apapun yang kalian kerjakan. Kursus ini 
+               juga menjadi dasar bagi kalian yang ingin belajar tentang framework Laravel`,
+      'mentor': 'Gilang Tanuwijaya',
+      'date': new Date(2014,12,2)
     },
     {
       'id': 4,
       'imgUrl': '../../../../assets/python.png',
       'title': 'Python Programming Language', 
-      'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-               Obcaecati vero cupiditate commodi fugiat ullam consequatur possimus eligendi fuga. 
-               Amet itaque cum veritatis voluptas illum sint velit, earum ex optio quam.`,
-      'mentor': 'Timmy Lasso',
+      'desc': `Python adalah bahasa pemrograman terkenal yang dibuat dengan fokus untuk mempermudah programmer untuk membaca kodingnya. Dalam kursus ini, kalian akan 
+               diajarkan Python dari dasar sampai kalian dapat mengimplementasikannya 
+               dalam aplikasi kalian.`,
+      'mentor': 'Filipino Santoso',
       'date': new Date(2019,3,19)
     }
   ]

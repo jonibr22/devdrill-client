@@ -1,0 +1,23 @@
+.vl-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    app-playing{
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    app-playlist{
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+    @media screen and (max-width: 2500px) {
+        flex-wrap: wrap !important;
+        app-playing{
+            flex-grow: 1 !important;
+            flex-shrink: 1 !important;
+        }
+        app-playlist{
+            flex-grow: 1 !important;
+        }
+    }
+}

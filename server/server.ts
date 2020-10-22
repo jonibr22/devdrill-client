@@ -1,9 +1,8 @@
-import { exception } from "console";
-
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('server/db.json');
 const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3000;
 const _ = require('lodash')
 const fs = require('fs');
 
@@ -112,6 +111,6 @@ function any(table){
 // })
 
 server.use(router);
-server.listen(3000, () => {
+server.listen(port, () => {
   console.log('JSON Server is running');
 });

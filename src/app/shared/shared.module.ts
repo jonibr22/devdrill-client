@@ -15,7 +15,7 @@ import {
   faMediumM,
   faTwitter,
   faInstagram,
-  faYoutube
+  faFacebook
 } from '@fortawesome/free-brands-svg-icons';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -43,7 +43,7 @@ export class SharedModule {
       faMediumM,
       faTwitter,
       faInstagram,
-      faYoutube,
+      faFacebook,
       faBiking,
       faSearch
     );

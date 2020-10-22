@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NewsComponent implements OnInit {
   slides = [
     {
-      'url':'https://wallpapercave.com/wp/wp2342125.jpg',
+      'url':'../../../../assets/devdrill-banner.png',
       'alt':'News 1',
       'title':'Mind Breakthrough',
       'detail':'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       'idName':'news1'
     },
     {
-      'url':'https://wallpapercave.com/wp/wp2342127.jpg',
+      'url':'../../../../assets/upgrade-banner.png',
       'alt':'News 2',
       'title':'Going to The Moon',
       'detail':'Consectetur tortor volutpat pretium.',

@@ -1,0 +1,12 @@
+<div class="vl-container">
+    <app-playing
+        [currentItem]="currentItem"
+        (onPlayerReady)="onPlayerReady($event)"
+    ></app-playing>
+    <app-playlist
+        [currentItem]="currentItem"
+        [playlist]="playlist"
+        (onClickPlaylistItem)="onClickPlaylistItem($event['item'],$event['$index'])"
+    >
+    </app-playlist>
+</div>

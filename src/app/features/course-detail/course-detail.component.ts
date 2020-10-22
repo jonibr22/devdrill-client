@@ -15,9 +15,9 @@ export class CourseDetailComponent implements OnInit {
     'id': 1,
     'imgUrl': '../../../assets/typescript.png',
     'title': 'Introduction to Typescript', 
-    'desc': `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-             Obcaecati vero cupiditate commodi fugiat ullam consequatur possimus eligendi fuga. 
-             Amet itaque cum veritatis voluptas illum sint velit, earum ex optio quam.`,
+    'desc': `Dalam kursus ini, kalian akan diajarkan Typescript dari dasar hingga 
+             fitur-fitur penting dari Typescript sampai di titik kalian dapat mengimplementasikan 
+             Typescript ke dalam proyek apapun yang kalian kerjakan.`,
     'mentor': 'Mike Wallowski',
     'date': new Date(2012,9,12)
   }

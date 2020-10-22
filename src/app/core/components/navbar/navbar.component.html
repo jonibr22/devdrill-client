@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="nav-toolbar">
     <div fxLayout="row" fxShow="true" fxHide.lt-sm class="nav-row">
         <div fxLayout="col" class="nav-items-left">
-            <button mat-button routerLink="/">
-                <img src="../../../../assets/logo.png" id="logo">
+            <button mat-button routerLink="/" id="logo">
+                <img src="../../../../assets/devdrill-logo.png">
             </button>
             <button mat-button routerLink="/track">Tracks</button>
             <button mat-button routerLink="/course">Courses</button>
@@ -10,7 +10,7 @@
         </div>
         <!-- conditional view of 'sign in / account button' on wide menu -->
         <div fxLayout="col" class="nav-items-right" *ngIf="currentUser; else signInButton">
-            <button mat-button routerLink="#" class="account-button" [mat-menu-trigger-for]="account">
+            <button mat-button class="account-button" [mat-menu-trigger-for]="account">
                 <mat-icon>person</mat-icon>
                 <span>{{currentUser.name}}</span>
             </button>

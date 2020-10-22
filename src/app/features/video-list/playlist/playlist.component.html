@@ -1,0 +1,18 @@
+
+<div class="chapter-detail">
+    <div class="chapter-video">
+        <mat-card class="video-card" *ngFor="let item of playlist; let $index = index"
+            (click)="onClickPlaylistItem.emit({item:item,index:$index})" [class.selected]="item === currentItem">
+            <mat-card-content>
+                <div class="video-preview">
+                    <img src="../../../../assets/learn1.jpg">
+                </div>
+                <div class="video-desc">
+                    <div class="video-title">{{item.title}}</div>
+                    <div class="video-duration">{{item.duration}}</div>
+                    <div class="video-about">{{item.desc}}</div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

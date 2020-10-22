@@ -8,41 +8,29 @@ import { Component, OnInit } from '@angular/core';
 export class LatestCoursesComponent implements OnInit {
   courses = [
     {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
+      'imgUrl': '../../../../assets/xyz.png',
+      'title':'Python Programming Language',
+      'cluster':'Python',
+      'author':'Filipino Santoso'
     },
     {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
+      'imgUrl': '../../../../assets/asdf.png',
+      'title':'Object-Oriented Programming with PHP',
+      'cluster':'PHP',
+      'author':'Gilang Tanuwijaya'
     },
     {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
+      'imgUrl': '../../../../assets/keyboard.png',
+      'title':'Asynchronus Programming in C#',
+      'cluster':'C#',
+      'author':'Levi Nathanael'
     },
     {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
+      'imgUrl': '../../../../assets/code.png',
+      'title':'Introduction to Typescript',
+      'cluster':'Typescript',
+      'author':'Mike Wallowski'
     },
-    {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
-    },
-    {
-      'imgUrl': '../../../../assets/learn1.jpg',
-      'title':'Doing nothing as above mentioned',
-      'cluster':'Angular 9 / Typescript',
-      'author':'Jake Lumbergerk'
-    }
   ]
   constructor() { }
 

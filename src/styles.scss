@@ -7,6 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .notify-info {
     color: #00529B;
     background-color: #BDE5F8;
+    z-index: 9999;
 }
 .notify-info .mat-simple-snackbar-action {
     color: #00529B;
@@ -14,22 +15,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .notify-success {
     color: #4F8A10;
     background-color: #DFF2BF;
+    z-index: 9999;
 }
-.notify-info .mat-simple-snackbar-action {
+.notify-success .mat-simple-snackbar-action {
     color: #4F8A10;
 }
 .notify-warning {
     color: #9F6000;
     background-color: #FEEFB3;
+    z-index: 9999;
 }
-.notify-info .mat-simple-snackbar-action {
+.notify-warning .mat-simple-snackbar-action {
     color: #9F6000;
 }
 .notify-error {
     color: #D8000C;
     background-color: #FFD2D2;
+    z-index: 9999;
 }
-.notify-info .mat-simple-snackbar-action {
+.notify-error .mat-simple-snackbar-action {
     color: #D8000C;
 }
 /* Importing Bootstrap SCSS file. */

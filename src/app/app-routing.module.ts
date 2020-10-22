@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'course', loadChildren: () => import('./features/course/course.module').then(m => m.CourseModule), canActivate: [AuthGuard]},
   {path: 'coursedetail', loadChildren: () => import('./features/course-detail/course-detail.module').then(m => m.CourseDetailModule), canActivate: [AuthGuard]},
   {path: 'trackdetail', loadChildren: () => import('./features/track-detail/track-detail.module').then(m => m.TrackDetailModule), canActivate: [AuthGuard]},
+  {path: 'videolist', loadChildren: () => import('./features/video-list/video-list.module').then(m => m.VideoListModule), canActivate: [AuthGuard]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotfoundComponent}
 ];
