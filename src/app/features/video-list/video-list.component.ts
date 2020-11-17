@@ -13,7 +13,7 @@ playlist=[
       'duration': '01:20:30 - 01:58:34',
       'imgUrl': '../../../../assets/learn1.jpg',
       'desc': 'Belajar dasar input dan ouput bahasa pemrograman Typescript dengan mencetak "hello world"',
-      'src': 'http://static.videogular.com/assets/videos/videogular.mp4',
+      'src': '../../../../assets/sample.mp4',
       'type': 'video/mp4'
     },
     {
@@ -21,7 +21,7 @@ playlist=[
       'duration': '01:58:35 - 02:38:14',
       'imgUrl': '../../../../assets/learn1.jpg',
       'desc': 'Belajar operasi seleksi dan repetisi dalam bahasa pemrograman Typescript',
-      'src': 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
+      'src': '../../../../assets/sample2.mp4',
       'type': 'video/mp4'
     },
     {
@@ -29,7 +29,7 @@ playlist=[
       'duration': '02:38:15 - 02:45:14',
       'imgUrl': '../../../../assets/learn1.jpg',
       'desc': 'Belajar mengimplementasikan materi dasar bahasa pemrograman Typescript dengan membuat kalkulator sederhana',
-      'src': 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
+      'src': '../../../../assets/sample3.mp4',
       'type': 'video/mp4'
     },       
   ]

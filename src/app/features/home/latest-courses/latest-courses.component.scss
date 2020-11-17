@@ -38,7 +38,11 @@
 .content-context{
     padding: 10px;
 }
+.course-item:hover .course-detail{
+    background: none !important;
+}
 .course-item{
+    cursor: pointer;
     margin-bottom: 10px;
     display: inline-block;
     background-color: #303030;

@@ -13,9 +13,9 @@ export class TrackDetailComponent implements OnInit {
     'id': 5,
     'logoUrl': '../../../assets/angular.png',
     'title': 'Angular Developer',
-    'description': 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\
-                    bred for hunting.'
+    'description': 'Pada track ini, anda akan fokus pada pemakaian Angular sebagai framework frontend yang sering digunakan \
+                    dalam pembuatan web application. Ketika lulus dari track ini, anda akan memahami lebih dalam \
+                    sampai pada trik-triknya.'
   }
   ngOnInit(): void {
     this.sub=this.activatedRoute.paramMap.subscribe(params => { 
