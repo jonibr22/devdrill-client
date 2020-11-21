@@ -7,10 +7,11 @@ import { SharedModule } from '@app/shared/shared.module';
 import { MaterialModule } from '@app/shared/material.module';
 import { ThreadsComponent } from './threads/threads.component';
 import { DetailThreadComponent } from './detail-thread/detail-thread.component';
+import { GeneralComponent } from './general/general.component';
 
 
 @NgModule({
-  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent],
+  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent, GeneralComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -3,12 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForumComponent } from './forum.component';
 import { DetailThreadComponent } from './detail-thread/detail-thread.component';
 import { ThreadsComponent } from './threads/threads.component';
+import { GeneralComponent } from './general/general.component';
 
 
 const routes: Routes = [
-  {path: '', component: ForumComponent},
-  {path: ':id', component: ThreadsComponent},
-  {path: ':id/detail', component: DetailThreadComponent}
+  { 
+    path: '', 
+    component: ForumComponent, 
+    children: [
+      {path: '', component: GeneralComponent},
+      {path: 'threads', component: ThreadsComponent},
+      {path: 'threads/detail', component: DetailThreadComponent}
+    ]
+  }
 ];
 
 @NgModule({

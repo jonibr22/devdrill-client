@@ -24,12 +24,12 @@ export class ThreadsComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  constructor(private activatedRoute: ActivatedRoute) { 
+  constructor(/*private activatedRoute: ActivatedRoute*/) { 
     const datas = Array.from({length: 2}, (_, i) => dummyThreadInjector(i));
-    this.activatedRoute.paramMap.subscribe(params => { 
-      let id = params.get('id'); 
-      console.log("hehe: "+ id);
-    });
+    // this.activatedRoute.paramMap.subscribe(params => { 
+    //   let id = params.get('id'); 
+    //   console.log("hehe: "+ id);
+    // });
     this.dataSource = new MatTableDataSource(datas);
   }
   ngAfterViewInit() {
