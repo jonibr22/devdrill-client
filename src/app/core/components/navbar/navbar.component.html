@@ -6,7 +6,7 @@
             </button>
             <button mat-button routerLink="/track">Tracks</button>
             <button mat-button routerLink="/course">Courses</button>
-            <button mat-button routerLink="#">Forum</button>
+            <button mat-button routerLink="/forum">Forum</button>
         </div>
         <!-- conditional view of 'sign in / account button' on wide menu -->
         <div fxLayout="col" class="nav-items-right" *ngIf="currentUser; else signInButton">
@@ -23,9 +23,9 @@
 </mat-toolbar>
 <mat-menu xPosition="after" #menu="matMenu">
     <button mat-menu-item routerLink="/">Home</button>
-    <button mat-menu-item routerLink="#">Tracks</button>
-    <button mat-menu-item routerLink="#">Courses</button>
-    <button mat-menu-item routerLink="#">Forum</button>
+    <button mat-menu-item routerLink="/track">Tracks</button>
+    <button mat-menu-item routerLink="/course">Courses</button>
+    <button mat-menu-item routerLink="/forum">Forum</button>
     <!-- conditional view of 'sign in / account button' on thin menu -->
     <button mat-menu-item 
         *ngIf="currentUser; else inmenuSignInButton"
@@ -36,12 +36,12 @@
 </mat-menu>
 <!-- submenu of account on wide menu -->
 <mat-menu xPosition="before" #account="matMenu">
-    <button mat-menu-item routerLink="#">Profile</button>
+    <button mat-menu-item routerLink="/profile">Profile</button>
     <button mat-menu-item routerLink="#" (click)="signout.emit()">Logout</button>
 </mat-menu>
 <!-- submenu of account on thin menu -->
 <mat-menu xPosition="after" #inmenuAccount="matMenu">
-    <button mat-menu-item routerLink="#">Profile</button>
+    <button mat-menu-item routerLink="/profile">Profile</button>
     <button mat-menu-item routerLink="#" (click)="signout.emit()">Logout</button>
 </mat-menu>
 <!-- 'Sign In' button on thin menu -->

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-title class="mb-4">
+                        <div class="d-flex justify-content-start">
+                            <div class="image-container">
+                                <img src="../../../assets/avatar.png" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail rounded-circle" />
+                                <div class="middle">
+                                    <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                                    <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                </div>
+                            </div>
+                            <div class="userData ml-3">
+                                <h2 class="d-block" style="font-weight: bold">Alex Rodriguez</h2>
+                                <h4 class="d-block m-0">Pro Member</h4>
+                                <h4 class="d-block m-0">Email: alexrodriguez2222431@gmail.com</h4>
+                                <h4 class="d-block m-0">LinkedIn: http://linkedin.com/alexrodrig011231</h4>
+                            </div>
+                            <div class="ml-auto">
+                                <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                            </div>
+                        </div>
+                    </mat-card-title>
+                    <mat-tab-group>
+                        <mat-tab label="Tracks">
+                            <app-track></app-track>
+                        </mat-tab>
+                        <mat-tab label="Courses">
+                            <app-courses></app-courses>
+                        </mat-tab>
+                        <mat-tab label="Threads">
+                            <app-threads></app-threads>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
