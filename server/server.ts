@@ -42,6 +42,13 @@ server.post('/register', (req, res) => {
     res.status(500).send('User already exists');
   }
 });
+//GET TRACKS
+server.get('/track', (req, res) => {
+  const db = router.db;
+  const tracks = all(db,'trackGroups');
+  res.send(tracks);
+});
+
 
 // // 
 // server.use('/users', (req, res, next) => {
