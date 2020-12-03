@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '@app/core/services/authentication.service';
 import { NotificationService } from '@app/core/services/notification.service';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
+import { User } from '@app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -51,7 +52,10 @@ export class LoginComponent implements OnInit {
           return;
       }
       this.loading = true;
-      this.authenticationService.login(this.f.email.value, this.f.password.value)
+      this.authenticationService.login({
+            email: this.f.email.value,
+            password: this.f.password.value
+        } as User)
           .subscribe(
               data => {
                   this.router.navigate([this.returnUrl]);
@@ -59,7 +63,7 @@ export class LoginComponent implements OnInit {
               error => {
                   this.error = error;
                   this.loading = false;
-                  this.notification.notify(error,NotificationEnum.Error);
+                  this.notification.notify(error.detail,NotificationEnum.Error);
               });
   }
   switchToRegister(){

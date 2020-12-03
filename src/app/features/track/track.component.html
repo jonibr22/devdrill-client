@@ -1,25 +1,25 @@
 <div class='category' *ngFor="let category of categoryTracks">
     <div class='category-title'>
-        <h1>{{category.name}}</h1>
+        <h1>{{category.trackGroupName}}</h1>
     </div>
     <hr style="background-color: white;">
     <div class='category-content'>
         <mat-card class="track-card" *ngFor="let track of category.tracks">
             <div class="track-content">
                 <div class="track-logo">
-                    <img mat-card-image [src]="track.logoUrl" alt=".NET Core">
+                    <img mat-card-image [src]="'/assets/'+track.photoUrl" alt=".NET Core">
                 </div>
                 <mat-card-content class="track-detail">
                     <div class="track-title">
-                        <h2>{{track.title}}</h2>
+                        <h2>{{track.name}}</h2>
                     </div>
                     <div class="track-desc">
-                        <p>{{track.description}}</p>
+                        <p>{{track.detail}}</p>
                     </div>
                 </mat-card-content>
             </div>
             <mat-card-actions class="track-join">
-              <button mat-button class="btn btn-primary" [routerLink]="['..','trackdetail',track.id]">JOIN NOW</button>
+              <button mat-button class="btn btn-primary" [routerLink]="['..','trackdetail',track.trackId]">JOIN NOW</button>
             </mat-card-actions>
         </mat-card>
     </div>

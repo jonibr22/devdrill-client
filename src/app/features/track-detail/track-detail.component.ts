@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationEnum } from '@app/core/enums/notification.enum';
+import { NotificationService } from '@app/core/services/notification.service';
+import { Track } from '@app/models/track.model';
+import { CourseService } from '@app/services/course.service';
+import { TrackService } from '@app/services/track.service';
 
 @Component({
   selector: 'app-track-detail',
@@ -7,22 +12,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./track-detail.component.scss']
 })
 export class TrackDetailComponent implements OnInit {
-  private sub;
-  constructor(private activatedRoute : ActivatedRoute) { }
-  track = {
-    'id': 5,
-    'logoUrl': '../../../assets/angular.png',
-    'title': 'Angular Developer',
-    'description': 'Pada track ini, anda akan fokus pada pemakaian Angular sebagai framework frontend yang sering digunakan \
-                    dalam pembuatan web application. Ketika lulus dari track ini, anda akan memahami lebih dalam \
-                    sampai pada trik-triknya.'
-  }
+  trackId: number;
+  constructor(
+    private activatedRoute : ActivatedRoute
+  ) { }
   ngOnInit(): void {
-    this.sub=this.activatedRoute.paramMap.subscribe(params => { 
-      console.log(params.get('id'));
-      //  this.id = params.get('id'); 
-      //  let products=this._productService.getProducts();
-      //  this.product=products.find(p => p.productID==this.id);    
+    this.activatedRoute.paramMap.subscribe(params => { 
+      this.trackId = +params.get('id');
     });
   }
 

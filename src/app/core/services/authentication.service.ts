@@ -25,15 +25,15 @@ export class AuthenticationService extends RootInjectorGuard{
     public get userValue(): User {
         return this.userSubject.value;
     }
-    register(data: User){
-        return this.http.post<any>(`${environment.apiUrl}/register`, data);
+    register(user: User){
+        return this.http.post<any>(`${environment.apiUrl}/user/register`, user);
     }
 
-    login(email: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/login`, { email, password })
+    login(user: User) {
+        console.log(user)
+        return this.http.post<any>(`${environment.apiUrl}/user/login`, user)
             .pipe(map((user) => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-                user.authdata = window.btoa(email + ':' + password);
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
                 return user;

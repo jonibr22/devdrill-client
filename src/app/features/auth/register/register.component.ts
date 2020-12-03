@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     user.email = this.f.email.value;
     user.name = this.f.name.value;
     user.password = this.f.password.value;
-    user.phone = this.f.phone.value;
+    user.phoneNumber = this.f.phone.value;
 
     this.authenticationService.register(user)
       .subscribe(

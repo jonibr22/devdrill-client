@@ -2,15 +2,11 @@
     <mat-card class="overview-card">
         <mat-card-content>
             <div class="track-image">
-                <img src="../../../../assets/angular.png">
+                <img [src]="'/assets/'+track.photoUrl">
             </div>
             <div class="track-desc">
-                <div class="track-title">Angular Developer</div>
-                <div class="track-about">
-                    Pada track ini, anda akan fokus pada pemakaian Angular sebagai framework frontend yang sering digunakan 
-                    dalam pembuatan web application. Ketika lulus dari track ini, anda akan memahami lebih dalam 
-                    sampai pada trik-triknya.
-                </div>
+                <div class="track-title">{{track.name}}</div>
+                <div class="track-about">{{track.detail}}</div>
             </div>
         </mat-card-content>
     </mat-card>

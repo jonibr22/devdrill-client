@@ -1,8 +1,20 @@
+import { Instructor } from './instructor.model';
+import { MappingUserCourse } from './mapping-user-course.model';
+import { MappingUserTrack } from './mapping-user-track.model';
+import { Reply } from './reply.model';
+import { Thread } from './thread.model';
+
 export class User{
-    id: number;
-    name: string;
-    email: string;
+    userId: number;
     password: string;
-    phone: string;
-    authdata?: string;
+    name: string;
+    photoUrl: string;
+    email: string;
+    phoneNumber: string;
+    isInstructor: boolean;
+    instructor: Instructor;
+    threads: Array<Thread>;
+    replies: Array<Reply>;
+    mappingUserCourse: MappingUserCourse;
+    mappingUserTrack: MappingUserTrack;    
 }
