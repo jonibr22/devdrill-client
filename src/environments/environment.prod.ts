@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api-devdrill.azurewebsites.net/',
+  apiUrl: 'https://devdrill-api.azurewebsites.net',
   sessionTime: 30
 };
