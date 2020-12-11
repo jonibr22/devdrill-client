@@ -7,7 +7,8 @@ import { TrackService } from '@app/services/track.service';
 @Component({
   selector: 'app-track',
   templateUrl: './track.component.html',
-  styleUrls: ['./track.component.scss']
+  styleUrls: ['./track.component.scss'],
+  providers: [TrackService]
 })
 export class TrackComponent implements OnInit {
   categoryTracks: TrackGroup[];

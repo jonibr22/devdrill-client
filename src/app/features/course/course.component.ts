@@ -1,71 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import { NotificationEnum } from '@app/core/enums/notification.enum';
+import { NotificationService } from '@app/core/services/notification.service';
+import { Course } from '@app/models/course.model';
+import { CourseService } from '@app/services/course.service';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  styleUrls: ['./course.component.scss'],
+  providers: [CourseService]
 })
 export class CourseComponent implements OnInit {
-  courses = [
-    {
-      'id': 1,
-      'imgUrl': '../../../../assets/typescript.png',
-      'title': 'Introduction to Typescript', 
-      'desc': `Dalam kursus ini, kalian akan diajarkan Typescript dari dasar hingga fitur-fitur 
-               penting dari Typescript sampai di titik kalian dapat mengimplementasikan Typescript ke 
-               dalam proyek apapun yang kalian kerjakan.`,
-      'mentor': 'Mike Wallowski',
-      'date': new Date(2012,9,12)
-    },
-    {
-      'id': 2,
-      'imgUrl': '../../../../assets/csharp.png',
-      'title': 'Asynchronus Programming in C#', 
-      'desc': `Dalam kursus ini, kalian akan diajarkan bahasa pemrograman C# dari dasar hingga fitur-fitur penting dari C# sampai di titik kalian dapat mengimplementasikan C# ke dalam proyek apapun yang kalian kerjakan. 
-               Kursus ini juga menjadi dasar bagi kalian yang ingin belajar tentang framework ASP .NET`,
-      'mentor': 'Levi Nathanael',
-      'date': new Date(2014,9,2)
-    },
-    {
-      'id': 3,
-      'imgUrl': '../../../../assets/php.png',
-      'title': 'Object-Oriented Programming with PHP', 
-      'desc': `Dalam kursus ini, kalian akan diajarkan bahasa pemrograman PHP  dari dasar hingga fitur-fitur penting dari PHP sampai di titik kalian dapat mengimplementasikan PHP ke dalam proyek apapun yang kalian kerjakan. Kursus ini 
-               juga menjadi dasar bagi kalian yang ingin belajar tentang framework Laravel`,
-      'mentor': 'Gilang Tanuwijaya',
-      'date': new Date(2014,12,2)
-    },
-    {
-      'id': 4,
-      'imgUrl': '../../../../assets/python.png',
-      'title': 'Python Programming Language', 
-      'desc': `Python adalah bahasa pemrograman terkenal yang dibuat dengan fokus untuk mempermudah programmer untuk membaca kodingnya. Dalam kursus ini, kalian akan 
-               diajarkan Python dari dasar sampai kalian dapat mengimplementasikannya 
-               dalam aplikasi kalian.`,
-      'mentor': 'Filipino Santoso',
-      'date': new Date(2019,3,19)
-    }
-  ]
+  courses: Course[];
   filteredCourses = []
-  constructor() { 
-    this.filteredCourses = this.courses
+  constructor(
+    private courseService: CourseService,
+    private notification: NotificationService
+  ) { 
+    
   }
 
   ngOnInit(): void {
+    this.courseService.getAll().subscribe(
+      data => {
+        this.courses = data;
+        this.filteredCourses = this.courses
+      },
+      error => {
+        this.notification.notify(error,NotificationEnum.Error);
+      }
+    )
   }
   
   filterCourse(searchText:string){ 
     this.filteredCourses = this.courses.filter(c => 
-        c.title.toLowerCase().trim().includes(searchText.toLowerCase().trim())
+        c.name.toLowerCase().trim().includes(searchText.toLowerCase().trim())
     );
   }
   filterInstructor(searchText:string){
     this.filteredCourses = this.courses.filter(c => 
-        c.mentor.toLowerCase().trim().includes(searchText.toLowerCase().trim())
+        c.instructor?.name.toLowerCase().trim().includes(searchText.toLowerCase().trim())
     );    
   }
   private doCompare(a: any, b: any, orderBy: string) {
+    if(orderBy == "instructor"){
+      if(a[orderBy].name < b[orderBy].name) return -1;
+      else if(a[orderBy].name > b[orderBy].name) return 1;
+      return 0;
+    }
     if(a[orderBy] < b[orderBy]) return -1;
     else if(a[orderBy] > b[orderBy]) return 1;
     return 0;

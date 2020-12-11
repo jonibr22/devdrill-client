@@ -1,9 +1,10 @@
 <div>
     <div class="row mx-3">
-        <img src="../../../../assets/angular.png" style="width: 60px;height: 60px;">
+        <fa-icon [icon]="['fas','question-circle']" [class]="['fa-3x']" *ngIf="!discussion.discussionGroup?.photoUrl"></fa-icon>
+        <img [src]="'/assets/'+discussion.discussionGroup?.photoUrl" style="width: 60px;height: 60px;" *ngIf="discussion.discussionGroup?.photoUrl">
         <div class="px-2">
-            <h1 style="margin:0;padding:0">Angular Discussion</h1>
-            <h4 style="margin:0;padding:0">Installation</h4>
+            <h1 style="margin:0;padding:0">{{discussion.name}}</h1>
+            <h4 style="margin:0;padding:0">{{discussion.discussionGroup?.name}}</h4>
         </div>
     </div>
     <mat-form-field>
@@ -12,9 +13,9 @@
     </mat-form-field>
     <div class="">
         <table mat-table [dataSource]="dataSource" matSort>
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="threadId">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.threadId}} </td>
             </ng-container>
             <ng-container matColumnDef="topic">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Topic </th>
@@ -28,9 +29,9 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Upvote </th>
             <td mat-cell *matCellDef="let row"> {{row.upvote}} </td>
             </ng-container>
-            <ng-container matColumnDef="reply">
+            <ng-container matColumnDef="replyCount">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Reply </th>
-            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.reply}} </td>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.replyCount}} </td>
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

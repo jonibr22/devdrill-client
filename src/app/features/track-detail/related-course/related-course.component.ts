@@ -15,7 +15,9 @@ export class RelatedCourseComponent implements OnInit {
   constructor(
     private courseService: CourseService,
     private notification: NotificationService
-  ) { }
+  ) { 
+    
+  }
   ngOnInit(): void {
     this.courseService.getByTrackId(this.trackId).subscribe(
       data => {

@@ -5,9 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Thread } from '@app/models/thread.model';
 
 const THREADS = [
-  {'id': 1, 'topic': 'Gimana caranya config ini menjadi itu', 'upvote': 245, 'reply': 38},
-  {'id': 2, 'topic': 'Dapat error 500, ada yang tau cara atasinnya', 'upvote': 185, 'reply': 32},
-  {'id': 3, 'topic': 'Installation angular env', 'upvote': 435, 'reply': 54},
+  {'threadId': 1, 'topic': 'Gimana caranya config ini menjadi itu', 'upvote': 245, 'replyCount': 38},
+  {'threadId': 2, 'topic': 'Dapat error 500, ada yang tau cara atasinnya', 'upvote': 185, 'replyCount': 32},
+  {'threadId': 3, 'topic': 'Installation angular env', 'upvote': 435, 'replyCount': 54},
 ]
 
 @Component({
@@ -44,10 +44,13 @@ export class ThreadsComponent implements AfterViewInit {
 
 function dummyProgressInjector(index:number): Thread{
   return {
-    id: THREADS[index].id,
+    threadId: THREADS[index].threadId,
     topic: THREADS[index].topic,
     upvote: THREADS[index].upvote,
-    reply: THREADS[index].reply,
-    author: 'self'
+    replyCount: THREADS[index].replyCount,
+    author: 'self',
+    insertDate: new Date(),
+    detail: 'this is detail blabla',
+    discussionId: 1
   };
 }

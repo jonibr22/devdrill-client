@@ -4,19 +4,19 @@
         <mat-expansion-panel *ngFor="let threadSection of threadSections">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <fa-icon [icon]="['fas','question-circle']" [class]="['fa-2x']" *ngIf="!threadSection.photo"></fa-icon>
-                    <img [src]="'../../../assets/'+threadSection.photo" style="width: 30px;height: 30px;" *ngIf="threadSection.photo">
+                    <fa-icon [icon]="['fas','question-circle']" [class]="['fa-2x']" *ngIf="!threadSection.photoUrl"></fa-icon>
+                    <img [src]="'/assets/'+threadSection.photoUrl" style="width: 30px;height: 30px;" *ngIf="threadSection.photoUrl">
                     <div style="margin: 0 10px;line-height: 2;">{{threadSection.name}}</div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="row d-flex justify-content-between w-100 py-2" style="padding-left: 50px;" *ngFor="let discussion of threadSection.discussion">
+            <div class="row d-flex justify-content-between w-100 py-2" style="padding-left: 50px;" *ngFor="let discussion of threadSection.discussions">
                 <div class="row">
                     <mat-icon style="margin: 0 10px">chat</mat-icon> 
-                    <a [routerLink]="['threads']" target="_blank" style="color: white;">{{discussion.name}}</a>
+                    <a [routerLink]="['threads',discussion.discussionId]" target="_blank" style="color: white;">{{discussion.name}}</a>
                 </div>
                 <div>
-                    <span class="d-inline-block" style="margin: 0 10px;">{{discussion.total_thread}} Thread</span>
-                    <span class="d-inline-block" style="margin: 0 10px;">{{discussion.total_message}} Messages</span>
+                    <span class="d-inline-block" style="margin: 0 10px;">??? Thread</span>
+                    <span class="d-inline-block" style="margin: 0 10px;">??? Messages</span>
                 </div>
             </div>
         </mat-expansion-panel>

@@ -2,11 +2,11 @@
     <mat-card class="overview-card">
         <mat-card-content>
             <div class="track-image">
-                <img [src]="'/assets/'+track.photoUrl">
+                <img [src]="'assets/'+track?.photoUrl">
             </div>
             <div class="track-desc">
-                <div class="track-title">{{track.name}}</div>
-                <div class="track-about">{{track.detail}}</div>
+                <div class="track-title">{{track?.name}}</div>
+                <div class="track-about">{{track?.detail}}</div>
             </div>
         </mat-card-content>
     </mat-card>

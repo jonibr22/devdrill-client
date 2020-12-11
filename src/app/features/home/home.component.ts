@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
   loading = false;
   users: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(
+    //private userService: UserService
+  ) { }
 
   ngOnInit() {
       this.loading = true;

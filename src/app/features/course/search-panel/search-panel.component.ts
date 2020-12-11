@@ -30,15 +30,15 @@ export class SearchPanelComponent implements OnInit {
       'text': '-- None --'
     },
     {
-      'value': 'title', 
+      'value': 'name', 
       'text': 'Course'
     },
     {
-      'value': 'mentor',
+      'value': 'instructor',
       'text': 'Instructor'
     },
     {
-      'value': 'date',
+      'value': 'insertDate',
       'text': 'Date'
     }
   ]

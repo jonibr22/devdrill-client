@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '@app/core/services/notification.service';
+import { LessonService } from '@app/services/lesson.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.scss']
+  styleUrls: ['./video-list.component.scss'],
+  providers: [LessonService]
 })
 export class VideoListComponent implements OnInit {
 
@@ -34,7 +39,7 @@ playlist=[
     },       
   ]
   currentIndex = 0;
-  currentItem = this.playlist[this.currentIndex];
+  currentItem;
   api;
   
   onPlayerReady(api) {
@@ -60,10 +65,22 @@ playlist=[
     this.api.play();
   }
 
-  constructor() {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private lessonService: LessonService,
+    private notification: NotificationService,
+    private router: Router
+    ) {
   }
+  courseId: number;
   ngOnInit() : void{
-
+    this.activatedRoute.paramMap.subscribe(params => { 
+      this.courseId = +params.get('id');
+    });
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      this.currentIndex = +params.get('c') || 0;
+    })
+    this.currentItem = this.playlist[this.currentIndex]
   }
 
 }

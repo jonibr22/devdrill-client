@@ -5,7 +5,7 @@ import { environment } from '@environments/environment';
 import { TrackGroup } from '@app/models/track-group.model';
 import { Track } from '@app/models/track.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class TrackService {
     constructor(private http: HttpClient
         ) { }

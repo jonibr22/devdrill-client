@@ -1,7 +1,10 @@
 export class Thread{
-    id: number;
+    threadId: number;
+    insertDate: Date;
     topic: string;
     upvote: number;
-    reply: number;
+    replyCount: number;
     author: string;
+    discussionId: number;
+    detail: string;
 }

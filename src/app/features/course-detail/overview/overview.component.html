@@ -3,17 +3,17 @@
         <mat-card class="overview-head-card">
             <mat-card-content class="overview-head-card-content">
                 <div class="overview-head-image">
-                    <img [src]="course.imgUrl">
+                    <img [src]="'/assets/'+course?.photoUrl">
                 </div>
                 <div class="overview-head-detail">
-                    <div class="overview-head-title">{{course.title}}</div>
+                    <div class="overview-head-title">{{course?.name}}</div>
                     <div class="overview-head-subtitle">
                         <div class="mentor-photo">
-                            <img src="../../../../assets/avatar.png" alt="avatar">
+                            <img src="/assets/avatar.png" alt="avatar">
                         </div>
                         <div class="mentor-desc">
-                            <span class="mentor-name">{{course.mentor}}</span>
-                            <span class="mentor-title">CEO & Instructor of Devdrill</span>
+                            <span class="mentor-name">{{course?.instructor?.name}}</span>
+                            <span class="mentor-title">{{course?.instructor?.title}} | {{course?.instructor?.companyName}}</span>
                         </div>
                     </div>
                 </div>
@@ -26,16 +26,7 @@
                 <h2>Course Outline</h2>
             </div>
             <mat-card-content class="overview-desc-card-content">
-                Dalam kursus ini, kalian akan diajarkan Typescript dari dasar hingga fitur-fitur 
-                penting dari Typescript sampai di titik kalian dapat mengimplementasikan Typescript ke 
-                dalam proyek apapun yang kalian kerjakan.<br>
-                Yang akan anda dapatkan setelah mengikutin course ini adalah:<br>
-                <ul>
-                    <li>Kemampuan pemrograman typescript</li>
-                    <li>Pemahaman mengenai fungsi dari typescript</li>
-                    <li>Pemahaman mengenai tata kerja typescript secara teknikal</li>
-                    <li>Kemampuan membuat simple application dengan typescript</li>
-                </ul>
+                {{course?.detail}}
             </mat-card-content>
         </mat-card>
     </div>

@@ -12,8 +12,8 @@ const routes: Routes = [
     component: ForumComponent, 
     children: [
       {path: '', component: GeneralComponent},
-      {path: 'threads', component: ThreadsComponent},
-      {path: 'threads/detail', component: DetailThreadComponent}
+      {path: 'threads/:id', component: ThreadsComponent},
+      {path: 'threads/:id/detail', component: DetailThreadComponent}
     ]
   }
 ];

@@ -3,11 +3,16 @@ import { Injectable } from '@angular/core';
 import { Course } from '@app/models/course.model';
 import { environment } from '@environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class CourseService{
     constructor(private http: HttpClient
         ) { }
-
+    getAll(){
+        return this.http.get<Course[]>(`${environment.apiUrl}/learning/courses`);
+    }
+    getById(id: number){
+        return this.http.get<Course>(`${environment.apiUrl}/learning/courses/${id}`);
+    }
     getByTrackId(id: number) {
         return this.http.get<Course[]>(`${environment.apiUrl}/learning/tracks/${id}/courses`);
     }
