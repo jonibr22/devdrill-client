@@ -8,15 +8,22 @@ import { MaterialModule } from '@app/shared/material.module';
 import { ThreadsComponent } from './threads/threads.component';
 import { DetailThreadComponent } from './detail-thread/detail-thread.component';
 import { GeneralComponent } from './general/general.component';
+import { DateAgoPipe } from '@app/pipes/date-ago.pipe';
+import { BelowThousandPipe } from '@app/pipes/below-thousand.pipe';
+import { ReplyFormComponent } from './detail-thread/dialogs/reply-form/reply-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteConfirmComponent } from './detail-thread/dialogs/delete-confirm/delete-confirm.component';
+import { ThreadFormComponent } from './detail-thread/dialogs/thread-form/thread-form.component';
 
 
 @NgModule({
-  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent, GeneralComponent],
+  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent, GeneralComponent, DateAgoPipe, BelowThousandPipe, ReplyFormComponent, DeleteConfirmComponent, ThreadFormComponent],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
-    ForumRoutingModule
+    ForumRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ForumModule { }

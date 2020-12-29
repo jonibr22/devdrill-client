@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+    Reply to Thread
+</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="replyForm">
+    <div mat-dialog-content>
+        <div class="form-group">
+            <textarea rows="6" cols="70" class="form-control"
+                placeholder="Reply Text" formControlName="reply"
+                [ngClass]="{ 'is-invalid': submitted && f.reply.errors }">
+            </textarea>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loading">Submit</button>
+    </div>
+</form>

@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {path: '', component: GeneralComponent},
       {path: 'threads/:id', component: ThreadsComponent},
-      {path: 'threads/:id/detail', component: DetailThreadComponent}
+      {path: 'threads/detail/:id', component: DetailThreadComponent}
     ]
   }
 ];

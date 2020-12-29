@@ -51,6 +51,7 @@ function dummyProgressInjector(index:number): Thread{
     author: 'self',
     insertDate: new Date(),
     detail: 'this is detail blabla',
-    discussionId: 1
+    discussionId: 1,
+    isInstructor: false
   };
 }

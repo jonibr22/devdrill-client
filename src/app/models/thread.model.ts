@@ -7,4 +7,5 @@ export class Thread{
     author: string;
     discussionId: number;
     detail: string;
+    isInstructor: boolean;
 }
