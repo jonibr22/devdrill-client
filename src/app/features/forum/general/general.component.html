@@ -15,8 +15,8 @@
                     <a [routerLink]="['threads',discussion.discussionId]" target="_blank" style="color: white;">{{discussion.name}}</a>
                 </div>
                 <div>
-                    <span class="d-inline-block" style="margin: 0 10px;">??? Thread</span>
-                    <span class="d-inline-block" style="margin: 0 10px;">??? Messages</span>
+                    <span class="d-inline-block" style="margin: 0 10px;">{{countThreads(discussion.threads)}} Thread</span>
+                    <span class="d-inline-block" style="margin: 0 10px;">{{countReplies(discussion.threads)}} Replies</span>
                 </div>
             </div>
         </mat-expansion-panel>

@@ -7,6 +7,7 @@ export class Lesson{
     startDateTime: Date;
     endDateTime: Date;
     videoUrl: string;
+    videoType: string;
     thumbnailUrl: string;
     lessonGroupId: number;
     lessonGroup: LessonGroup;

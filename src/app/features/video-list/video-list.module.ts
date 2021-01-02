@@ -5,11 +5,10 @@ import { VideoListRoutingModule } from './video-list-routing.module';
 import { VideoListComponent } from './video-list.component';
 import { VgCoreModule,VgControlsModule,VgBufferingModule, VgOverlayPlayModule } from 'ngx-videogular';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { PlayingComponent } from './playing/playing.component'
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
-  declarations: [VideoListComponent, PlaylistComponent, PlayingComponent],
+  declarations: [VideoListComponent, PlaylistComponent],
   imports: [
     SharedModule,
     CommonModule,

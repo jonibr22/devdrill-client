@@ -6,7 +6,7 @@
     <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.threadId}} </td>
         </ng-container>
         <ng-container matColumnDef="topic">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Topic </th>
@@ -18,11 +18,11 @@
         </ng-container>
         <ng-container matColumnDef="reply">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Reply </th>
-        <td mat-cell *matCellDef="let row"> {{row.reply}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.replyCount}} </td>
         </ng-container>
         <ng-container matColumnDef="toggle">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Toggle </th>
-        <td mat-cell *matCellDef="let row"> <button mat-button>Open</button> </td>
+        <td mat-cell *matCellDef="let row"> <button mat-button [routerLink]="['..','forum','threads','detail',row.threadId]">Open</button> </td>
         </ng-container>
     
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

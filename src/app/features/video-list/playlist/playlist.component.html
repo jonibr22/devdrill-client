@@ -1,16 +1,17 @@
 
 <div class="chapter-detail">
-    <div class="chapter-video">
-        <mat-card class="video-card" *ngFor="let item of playlist; let $index = index"
-            (click)="onClickPlaylistItem.emit({item:item,index:$index})" [class.selected]="item === currentItem">
+    <div class="chapter-video" *ngFor="let chapter of (lessonGroups$ | async)">
+        <h3>{{chapter.lessonGroupName}}</h3><hr style="background-color: white;">
+        <mat-card class="video-card" *ngFor="let video of chapter.lessons; let $index = index"
+            (click)="onClick(video.lessonId)" [class.selected]="video.lessonId == currentLessonId">
             <mat-card-content>
                 <div class="video-preview">
-                    <img src="../../../../assets/learn1.jpg">
+                    <img [src]="'assets/'+video.thumbnailUrl">
                 </div>
                 <div class="video-desc">
-                    <div class="video-title">{{item.title}}</div>
-                    <div class="video-duration">{{item.duration}}</div>
-                    <div class="video-about">{{item.desc}}</div>
+                    <div class="video-title">{{video.name}}</div>
+                    <div class="video-duration">{{video.startDateTime | date: 'hh:mm:ss'}} - {{video.endDateTime | date: 'hh:mm:ss'}}</div>
+                    <div class="video-about">{{video.detail.substring(0,60)+(video.detail.substring(60)?'...':'')}}</div>
                 </div>
             </mat-card-content>
         </mat-card>

@@ -7,5 +7,6 @@ export class Track{
     detail: string;
     trackGroupId: number;
     trackGroup: TrackGroup;
-    
+    progress?: number;
+    lastActive: Date;
 }

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LessonGroup } from '@app/models/lesson-group.model';
+import { Lesson } from '@app/models/lesson.model';
 import { environment } from '@environments/environment';
 
 @Injectable()
 export class LessonService{
     constructor(private http : HttpClient){}
-    getByCourseId(id: number){
-        return this.http.get<LessonGroup[]>(`${environment.apiUrl}/learning/courses/${id}/lessons`);
+    getById(id: number){
+        return this.http.get<Lesson>(`${environment.apiUrl}/learning/lessons/${id}`);
     }
 
 }

@@ -40,7 +40,7 @@ export class CourseComponent implements OnInit {
   }
   filterInstructor(searchText:string){
     this.filteredCourses = this.courses.filter(c => 
-        c.instructor?.name.toLowerCase().trim().includes(searchText.toLowerCase().trim())
+        c.user?.name.toLowerCase().trim().includes(searchText.toLowerCase().trim())
     );    
   }
   private doCompare(a: any, b: any, orderBy: string) {

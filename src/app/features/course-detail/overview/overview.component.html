@@ -1,19 +1,20 @@
 <div class="overview-container">
     <div class="overview-head-container">
-        <mat-card class="overview-head-card">
+        <mat-card class="overview-head-card" 
+        [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('+'/assets/'+(course$ | async)?.coverUrl + ')'}">
             <mat-card-content class="overview-head-card-content">
                 <div class="overview-head-image">
-                    <img [src]="'/assets/'+course?.photoUrl">
+                    <img [src]="'/assets/'+(course$ | async)?.photoUrl">
                 </div>
                 <div class="overview-head-detail">
-                    <div class="overview-head-title">{{course?.name}}</div>
+                    <div class="overview-head-title">{{(course$ | async)?.name}}</div>
                     <div class="overview-head-subtitle">
                         <div class="mentor-photo">
-                            <img src="/assets/avatar.png" alt="avatar">
+                            <img [src]="pictureUrl" alt="avatar">
                         </div>
                         <div class="mentor-desc">
-                            <span class="mentor-name">{{course?.instructor?.name}}</span>
-                            <span class="mentor-title">{{course?.instructor?.title}} | {{course?.instructor?.companyName}}</span>
+                            <span class="mentor-name">{{(course$ | async)?.user?.name}}</span>
+                            <span class="mentor-title">{{(course$ | async)?.user?.instructor?.title}} | {{(course$ | async)?.user?.instructor?.companyName}}</span>
                         </div>
                     </div>
                 </div>
@@ -26,7 +27,7 @@
                 <h2>Course Outline</h2>
             </div>
             <mat-card-content class="overview-desc-card-content">
-                {{course?.detail}}
+                {{(course$ | async)?.detail}}
             </mat-card-content>
         </mat-card>
     </div>

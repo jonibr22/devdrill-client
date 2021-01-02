@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '@app/models/user.model';
+import { CourseService } from '@app/services/course.service';
+import { ThreadService } from '@app/services/thread.service';
 import { UserService } from '@app/services/user.service';
 import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [CourseService,UserService]
 })
 export class HomeComponent implements OnInit {
   loading = false;

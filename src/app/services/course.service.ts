@@ -16,4 +16,7 @@ export class CourseService{
     getByTrackId(id: number) {
         return this.http.get<Course[]>(`${environment.apiUrl}/learning/tracks/${id}/courses`);
     }
+    getLatest(){
+        return this.http.get<Course[]>(`${environment.apiUrl}/learning/latest-courses`);
+    }
 }

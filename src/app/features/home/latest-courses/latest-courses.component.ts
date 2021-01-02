@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Course } from '@app/models/course.model';
+import { CourseService } from '@app/services/course.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-latest-courses',
@@ -7,38 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./latest-courses.component.scss']
 })
 export class LatestCoursesComponent implements OnInit {
-  courses = [
-    {
-      'id': 4,
-      'imgUrl': '../../../../assets/xyz.png',
-      'title':'Python Programming Language',
-      'cluster':'Python',
-      'author':'Filipino Santoso'
-    },
-    {
-      'id': 3,
-      'imgUrl': '../../../../assets/asdf.png',
-      'title':'Object-Oriented Programming with PHP',
-      'cluster':'PHP',
-      'author':'Gilang Tanuwijaya'
-    },
-    {
-      'id': 2,
-      'imgUrl': '../../../../assets/keyboard.png',
-      'title':'Asynchronus Programming in C#',
-      'cluster':'C#',
-      'author':'Levi Nathanael'
-    },
-    {
-      'id': 1,
-      'imgUrl': '../../../../assets/code.png',
-      'title':'Introduction to Typescript',
-      'cluster':'Typescript',
-      'author':'Mike Wallowski'
-    },
-  ]
-  constructor() { }
+  courses$: Observable<Course[]>;
+  constructor(
+    private courseService: CourseService
+  ) { }
 
   ngOnInit(): void {
+    this.courses$ = this.courseService.getLatest();
   }
 }

@@ -2,15 +2,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    app-playing{
+    .video-player{
         flex-grow: 0;
         flex-shrink: 0;
+        margin-right: 20px;
     }
     app-playlist{
         flex-grow: 0;
         flex-shrink: 1;
     }
-    @media screen and (max-width: 2500px) {
+    @media screen and (max-width: 1200px) {
         flex-wrap: wrap !important;
         app-playing{
             flex-grow: 1 !important;
@@ -19,5 +20,29 @@
         app-playlist{
             flex-grow: 1 !important;
         }
+    }
+}
+.video-player-wrapper{
+    vg-player{
+        width: 68vw !important;
+    }
+    width:inherit;
+    @media screen and (max-width: 600px) {
+        max-width: 600px;
+    }
+    padding: 0 1.5vw 1.5vh 0;
+    @media screen and (max-width: 2500px) {
+        padding-right: 0;
+    }
+    margin-bottom: 20px;
+    color: white;
+    .video-title{
+        margin-top: 35px;
+        font-size: 32px;
+    }
+    .video-desc{
+        width:inherit;
+        margin-top: 30px;
+        font-size: 16px;
     }
 }

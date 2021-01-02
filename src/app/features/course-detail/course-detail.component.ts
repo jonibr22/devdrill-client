@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute, ParamMap } from '@angular/router';
 import { CourseService } from '@app/services/course.service';
+import { LessonGroupService } from '@app/services/lesson-group.service';
 import { LessonService } from '@app/services/lesson.service';
 import { Observable } from 'rxjs';
 
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.scss'],
-  providers: [CourseService,LessonService]
+  providers: [CourseService,LessonGroupService]
 })
 export class CourseDetailComponent implements OnInit {
   courseId: number;

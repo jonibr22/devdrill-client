@@ -5,14 +5,14 @@
         </div>
         <mat-card-content>
             <div class="content-context">
-                <div class="course-item" *ngFor="let course of courses" [routerLink]="['..','coursedetail',course.id]">
+                <div class="course-item" *ngFor="let course of (courses$ | async)" [routerLink]="['..','coursedetail',course.courseId]">
                     <div class='course-preview'>
-                        <img [src]="course.imgUrl">
+                        <img [src]="'/assets/'+course.coverUrl">
                     </div>
                     <div class='course-detail'>
-                        <span class='course-title'>{{course.title}}</span>
-                        <span class='course-cluster'>{{course.cluster}}</span>
-                        <span class='course-author'>{{course.author}}</span>
+                        <span class='course-title'>{{course.name}}</span>
+                        <span class='course-cluster'>{{course.track?.name}}</span>
+                        <span class='course-author'>{{course.user?.name}}</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -6,13 +7,20 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-  @Input() currentItem;
-  @Input() playlist;
-  @Output() onClickPlaylistItem = new EventEmitter<object>();
+  @Input() currentCourseId;
+  @Input() currentLessonId;
+  @Input() lessonGroups$;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+  }
+
+  onClick(v:number){
+    this.router.navigate(['..','videolist',this.currentCourseId],{queryParams: {v: v}});
   }
 
 }

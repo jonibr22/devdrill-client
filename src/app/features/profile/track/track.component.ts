@@ -1,28 +1,40 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthenticationService } from '@app/core/services/authentication.service';
 import { Progress } from '@app/models/progress.model';
+import { Track } from '@app/models/track.model';
+import { UserService } from '@app/services/user.service';
 
-const TRACKS = [
-  {'id': 1, 'name': 'Angular Developer Track', 'progress': 100},
-  {'id': 2, 'name': 'Laravel Developer Track', 'progress': 85},
-  {'id': 3, 'name': 'Node.js Developer Track', 'progress': 45},
-]
 @Component({
   selector: 'app-track',
   templateUrl: './track.component.html',
   styleUrls: ['./track.component.scss']
 })
-export class TrackComponent implements AfterViewInit {
+export class TrackComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['id','name','progress','toggle'];
-  dataSource: MatTableDataSource<Progress>;
+  dataSource: MatTableDataSource<Track>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { 
-    const datas = Array.from({length: 2}, (_,i)=>dummyProgressInjector(i));
-    this.dataSource = new MatTableDataSource(datas)
+  readonly progress_color: ThemePalette = 'warn';
+  readonly progress_mode: ProgressBarMode = 'determinate';
+
+  constructor(
+    private userService: UserService,
+    private authenticationService: AuthenticationService
+  ) { }
+  ngOnInit(){
+    this.authenticationService.user.subscribe(user => {
+      this.userService.getUserTracksWithOrderByLastActive(user.userId).subscribe(
+        data => {
+          this.dataSource = new MatTableDataSource(data)
+        }
+      )
+    })
   }
 
   ngAfterViewInit() {
@@ -39,12 +51,4 @@ export class TrackComponent implements AfterViewInit {
     }
   }
 
-}
-
-function dummyProgressInjector(index:number):Progress{
-  return {
-    id: TRACKS[index].id,
-    name: TRACKS[index].name,
-    progress: TRACKS[index].progress
-  };
 }

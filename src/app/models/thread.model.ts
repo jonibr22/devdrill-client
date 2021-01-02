@@ -1,11 +1,14 @@
-export class Thread{
+import { IProfilePicture } from "@app/interfaces/i-profile-picture.interface";
+import { User } from "./user.model";
+
+export class Thread implements IProfilePicture{
     threadId: number;
     insertDate: Date;
     topic: string;
     upvote: number;
     replyCount: number;
-    author: string;
+    user: User;
     discussionId: number;
     detail: string;
-    isInstructor: boolean;
+    pictureUrl: any;
 }

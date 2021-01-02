@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
 import { NotificationService } from '@app/core/services/notification.service';
 import { DiscussionGroup } from '@app/models/discussion-group.model';
+import { Thread } from '@app/models/thread.model';
 import { DiscussionService } from '@app/services/discussion.service';
+import { ReplyService } from '@app/services/reply.service';
+import { ThreadService } from '@app/services/thread.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-general',
@@ -26,5 +30,18 @@ export class GeneralComponent implements OnInit {
       }
     )
   }
-
+  countThreads(threads: Thread[]){
+    if(threads){
+      return threads.length;
+    }
+    return 0;
+  }
+  countReplies(threads: Thread[]){
+    if(threads){
+      return threads.reduce(function (acc, curr) {
+        return acc + curr.replyCount;
+      },0);
+    }
+    return 0;
+  }
 }

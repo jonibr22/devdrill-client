@@ -2,7 +2,11 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthenticationService } from '@app/core/services/authentication.service';
 import { Thread } from '@app/models/thread.model';
+import { User } from '@app/models/user.model';
+import { ThreadService } from '@app/services/thread.service';
+import { UserService } from '@app/services/user.service';
 
 const THREADS = [
   {'threadId': 1, 'topic': 'Gimana caranya config ini menjadi itu', 'upvote': 245, 'replyCount': 38},
@@ -15,15 +19,24 @@ const THREADS = [
   templateUrl: './threads.component.html',
   styleUrls: ['./threads.component.scss']
 })
-export class ThreadsComponent implements AfterViewInit {
+export class ThreadsComponent implements AfterViewInit,OnInit {
   displayedColumns: string[] = ['id','topic','upvote','reply','toggle'];
   dataSource: MatTableDataSource<Thread>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { 
-    const datas = Array.from({length: 2}, (_,i)=>dummyProgressInjector(i));
-    this.dataSource = new MatTableDataSource(datas)
+  constructor(
+    private userService: UserService,
+    private authenticationService: AuthenticationService
+  ) { }
+  ngOnInit(){
+    this.authenticationService.user.subscribe(user => {
+      this.userService.getUserThreadsWithOrderByNewest(user.userId).subscribe(
+        data => {
+          this.dataSource = new MatTableDataSource(data)
+        }
+      )
+    })
   }
 
   ngAfterViewInit() {
@@ -48,10 +61,10 @@ function dummyProgressInjector(index:number): Thread{
     topic: THREADS[index].topic,
     upvote: THREADS[index].upvote,
     replyCount: THREADS[index].replyCount,
-    author: 'self',
+    user: {userId: 1, name: 'Roy', isInstructor: false} as User,
     insertDate: new Date(),
     detail: 'this is detail blabla',
     discussionId: 1,
-    isInstructor: false
+    pictureUrl: null
   };
 }

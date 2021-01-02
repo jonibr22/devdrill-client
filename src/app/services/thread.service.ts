@@ -13,6 +13,13 @@ export class ThreadService{
     getByDiscussionId(id: number){
         return this.http.get<Thread[]>(`${environment.apiUrl}/forum/discussions/${id}/threads`);
     }
+    update(thread: Thread){
+        return this.http.put<any>(`${environment.apiUrl}/forum/threads`,{
+            threadId: thread.threadId,
+            topic: thread.topic,
+            detail: thread.detail
+        });
+    }
     vote(threadId: number, type: VoteType){
         return this.http.post<any>(`${environment.apiUrl}/forum/threads/vote`,{
             threadId: threadId,

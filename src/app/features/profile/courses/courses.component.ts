@@ -1,29 +1,41 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthenticationService } from '@app/core/services/authentication.service';
+import { Course } from '@app/models/course.model';
 import { Progress } from '@app/models/progress.model';
-
-const COURSES = [
-  {'id': 1, 'name': 'Asynchronous Programming with C#', 'progress': 100},
-  {'id': 2, 'name': 'Introduction to Laravel 7.x', 'progress': 85},
-  {'id': 3, 'name': 'Introduction to Python', 'progress': 45},
-]
+import { UserService } from '@app/services/user.service';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss']
 })
-export class CoursesComponent implements AfterViewInit {
+export class CoursesComponent implements AfterViewInit,OnInit {
   displayedColumns: string[] = ['id','name','progress','toggle'];
-  dataSource: MatTableDataSource<Progress>;
+  dataSource: MatTableDataSource<Course>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { 
-    const datas = Array.from({length: 2}, (_,i)=>dummyProgressInjector(i));
-    this.dataSource = new MatTableDataSource(datas)
+  readonly progress_color: ThemePalette = 'warn';
+  readonly progress_mode: ProgressBarMode = 'determinate';
+
+  constructor(
+    private userService: UserService,
+    private authenticationService: AuthenticationService
+  ) { 
+  }
+  ngOnInit(){
+    this.authenticationService.user.subscribe(user => {
+      this.userService.getUserCoursesWithOrderByLastActive(user.userId).subscribe(
+        data => {
+          this.dataSource = new MatTableDataSource(data)
+        }
+      )
+    })
   }
 
   ngAfterViewInit() {
@@ -40,12 +52,4 @@ export class CoursesComponent implements AfterViewInit {
     }
   }
 
-}
-
-function dummyProgressInjector(index:number):Progress{
-  return {
-    id: COURSES[index].id,
-    name: COURSES[index].name,
-    progress: COURSES[index].progress
-  };
 }
