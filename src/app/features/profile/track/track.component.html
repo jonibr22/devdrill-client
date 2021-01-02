@@ -20,7 +20,7 @@
                 [mode]="progress_mode"
                 [value]="row.progress * 100">
             </mat-progress-bar>
-            {{row.progress * 100}}% 
+            {{row.progress | percent}}
         </td>
         </ng-container>
         <ng-container matColumnDef="toggle">
