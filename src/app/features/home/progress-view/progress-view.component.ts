@@ -3,6 +3,7 @@ import { AuthenticationService } from '@app/core/services/authentication.service
 import { Course } from '@app/models/course.model';
 import { Thread } from '@app/models/thread.model';
 import { Track } from '@app/models/track.model';
+import { User } from '@app/models/user.model';
 import { ThreadService } from '@app/services/thread.service';
 import { UserService } from '@app/services/user.service';
 import { Observable } from 'rxjs';
@@ -14,6 +15,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./progress-view.component.scss']
 })
 export class ProgressViewComponent implements OnInit {
+  user: User;
   threadLatest$: Observable<Thread>;
   threadsCount$: Observable<number>;
   courseLatest$: Observable<Course>;
@@ -39,6 +41,7 @@ export class ProgressViewComponent implements OnInit {
         .pipe(map(val => val[0]));
       this.tracksDone$ = this.userService.getUserTracksWithOrderByLastActive(user.userId)
         .pipe(map(val => val.filter(e => e.progress == 1.0 ).length));
+      this.user = user;
     });
   }
 

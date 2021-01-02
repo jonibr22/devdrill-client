@@ -25,8 +25,10 @@ export class ProfileComponent implements OnInit,IProfilePicture {
   ) { }
 
   ngOnInit(): void {
-    this.authenticationService.user.subscribe(x => this.user = x);
-    this.getPhoto();
+    this.authenticationService.user.subscribe(x => {
+      this.user = x;
+      this.getPhoto();
+    });
   }
   
   getPhoto(){
