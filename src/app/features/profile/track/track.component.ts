@@ -14,7 +14,7 @@ import { UserService } from '@app/services/user.service';
   templateUrl: './track.component.html',
   styleUrls: ['./track.component.scss']
 })
-export class TrackComponent implements AfterViewInit, OnInit {
+export class TrackComponent implements AfterViewInit{
   displayedColumns: string[] = ['id','name','progress','toggle'];
   dataSource: MatTableDataSource<Track>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,19 +27,17 @@ export class TrackComponent implements AfterViewInit, OnInit {
     private userService: UserService,
     private authenticationService: AuthenticationService
   ) { }
-  ngOnInit(){
+
+  ngAfterViewInit() {
     this.authenticationService.user.subscribe(user => {
       this.userService.getUserTracksWithOrderByLastActive(user.userId).subscribe(
         data => {
           this.dataSource = new MatTableDataSource(data)
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       )
     })
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

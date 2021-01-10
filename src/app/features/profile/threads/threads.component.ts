@@ -19,29 +19,27 @@ const THREADS = [
   templateUrl: './threads.component.html',
   styleUrls: ['./threads.component.scss']
 })
-export class ThreadsComponent implements AfterViewInit,OnInit {
+export class ThreadsComponent implements AfterViewInit{
   displayedColumns: string[] = ['id','topic','upvote','reply','toggle'];
   dataSource: MatTableDataSource<Thread>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
+  @ViewChild(MatSort,{static:false}) sort: MatSort;
 
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService
   ) { }
-  ngOnInit(){
+
+  ngAfterViewInit() {
     this.authenticationService.user.subscribe(user => {
       this.userService.getUserThreadsWithOrderByNewest(user.userId).subscribe(
         data => {
           this.dataSource = new MatTableDataSource(data)
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       )
     })
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

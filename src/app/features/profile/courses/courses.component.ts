@@ -14,7 +14,7 @@ import { UserService } from '@app/services/user.service';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss']
 })
-export class CoursesComponent implements AfterViewInit,OnInit {
+export class CoursesComponent implements AfterViewInit {
   displayedColumns: string[] = ['id','name','progress','toggle'];
   dataSource: MatTableDataSource<Course>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -28,19 +28,17 @@ export class CoursesComponent implements AfterViewInit,OnInit {
     private authenticationService: AuthenticationService
   ) { 
   }
-  ngOnInit(){
+
+  ngAfterViewInit() {
     this.authenticationService.user.subscribe(user => {
       this.userService.getUserCoursesWithOrderByLastActive(user.userId).subscribe(
         data => {
           this.dataSource = new MatTableDataSource(data)
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       )
     })
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

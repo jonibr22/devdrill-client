@@ -48,6 +48,8 @@ export class ThreadsComponent implements AfterViewInit,OnInit {
         data => {
           this.threads = data;
           this.dataSource = new MatTableDataSource(this.threads);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         },
         error => {
           this.notification.notify(error,NotificationEnum.Error);
@@ -58,8 +60,8 @@ export class ThreadsComponent implements AfterViewInit,OnInit {
 
   }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
