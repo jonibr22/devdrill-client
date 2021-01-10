@@ -15,8 +15,14 @@ export class AuthGuard implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const user = this.authenticationService.userValue;
+        const expired = localStorage.getItem('expired')
         if (user) {
-            return true;
+            if(!expired? true : (Date.now() < +expired))
+                return true;
+            else{
+                this.authenticationService.logout();
+                return false;
+            }
         }
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url } });

@@ -29,12 +29,15 @@ export class AuthenticationService extends RootInjectorGuard{
         return this.http.post<any>(`${environment.apiUrl}/user/register`, user);
     }
 
-    login(user: User) {
-        console.log(user)
+    login(user: User, isRemember) {
+        console.log("is-rememer: "+isRemember)
         return this.http.post<any>(`${environment.apiUrl}/user/login`, user)
             .pipe(map((user) => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
+                if(!isRemember){
+                    localStorage.setItem('expired', (Date.now() + (1000 * 60 * 60 * 2)).toString());
+                }
                 this.userSubject.next(user);
                 return user;
             }));   
@@ -43,6 +46,8 @@ export class AuthenticationService extends RootInjectorGuard{
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
+        if(localStorage.getItem('expired'))
+            localStorage.removeItem('expired');
         this.userSubject.next(null);
         this.router.navigate(['auth/login']);
     }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://localhost:44309',
-  sessionTime: 30
+  sessionTime: 60
 };
 
 /*

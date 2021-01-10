@@ -18,12 +18,11 @@
       </div>
       <div class="login-form-field">
         <section class="field-box">
-          <mat-checkbox>Remember this account</mat-checkbox>
+          <mat-checkbox formControlName="remember">Remember this account</mat-checkbox>
         </section>
       </div>
       <div class="login-action-box">
         <button mat-raised-button color="primary" [disabled]="loading" type="submit">Login</button>
-        <span class="text-note">Forgot your password? <a class="a-link" href="#">Click Here</a></span>
       </div>
     </form>
   </mat-card-content>
