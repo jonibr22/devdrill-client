@@ -13,11 +13,12 @@ import { BelowThousandPipe } from '@app/pipes/below-thousand.pipe';
 import { ReplyFormComponent } from './detail-thread/dialogs/reply-form/reply-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteConfirmComponent } from './detail-thread/dialogs/delete-confirm/delete-confirm.component';
-import { ThreadFormComponent } from './detail-thread/dialogs/thread-form/thread-form.component';
+import { ThreadFormComponent as TF1} from './detail-thread/dialogs/thread-form/thread-form.component';
+import { ThreadFormComponent as TF2} from './threads/dialogs/thread-form/thread-form.component';
 
 
 @NgModule({
-  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent, GeneralComponent, DateAgoPipe, BelowThousandPipe, ReplyFormComponent, DeleteConfirmComponent, ThreadFormComponent],
+  declarations: [ForumComponent, ThreadsComponent, DetailThreadComponent, GeneralComponent, DateAgoPipe, BelowThousandPipe, ReplyFormComponent, DeleteConfirmComponent, TF1, TF2],
   imports: [
     CommonModule,
     SharedModule,

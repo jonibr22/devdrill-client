@@ -20,6 +20,12 @@ export class ThreadService{
             detail: thread.detail
         });
     }
+    insert(thread: Thread,userId: number){
+        return this.http.post<any>(`${environment.apiUrl}/forum/threads`,{
+            userId: userId,
+            threadDto: thread
+        });       
+    }
     vote(threadId: number, type: VoteType){
         return this.http.post<any>(`${environment.apiUrl}/forum/threads/vote`,{
             threadId: threadId,
